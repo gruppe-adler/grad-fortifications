@@ -11,4 +11,4 @@ grad_fortifications_updatePFH = [{
 },0,_this] call CBA_fnc_addPerFrameHandler;
 
 
-_h
+grad_fortifications_updatePFH

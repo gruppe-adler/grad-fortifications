@@ -4,6 +4,7 @@
 (findDisplay 46) displayRemoveEventHandler ["KeyUp",grad_fortifications_keyupEH];
 
 [grad_fortifications_updatePFH] call CBA_fnc_removePerFrameHandler;
+[grad_fortifications_checkCollisionPFH] call CBA_fnc_removePerFrameHandler;
 
 player removeAction grad_fortifications_fireOverride;
 

@@ -15,7 +15,7 @@ grad_fortifications_mousewheelEH = (findDisplay 46) displayAddEventHandler ["Mou
         };
         default {
             _currentDistance = player getVariable ["grad_fortifications_currentDistance",4],
-            _newDistance = ((_currentDistance + _wheelChange/3) max 4) min 15;
+            _newDistance = ((_currentDistance + _wheelChange/3) max 2) min 10;
             player setVariable ["grad_fortifications_currentDistance",_newDistance];
         };
     };
@@ -27,8 +27,6 @@ grad_fortifications_mousebuttonEH = (findDisplay 46) displayAddEventHandler ["Mo
     params ["_control","_button"];
 
     if !(_button in [0,1]) exitWith {};
-
-    [] call grad_fortifications_fnc_removeAllEHs;
 
     switch (true) do {
         case (_button == 0): {
