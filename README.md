@@ -42,17 +42,17 @@ To build a fortification, open up your fortification menu with ACE-Selfinteracti
 ### Add Fortifications
 To add fortifications to a unit use `[unit,type,amount] call grad_fortifications_fnc_addFort`:
 
-Parameter  |  Explanation
---|--
-unit | Object - The unit to add the fortification to.  
-type  |  String - The type of fortification.
-amount | Number - The amount of fortifications to add (optional). Default is 1.
+Parameter | Explanation
+----------|-----------------------------------------------------------------------
+unit      | Object - The unit to add the fortification to.
+type      | String - The type of fortification.
+amount    | Number - The amount of fortifications to add (optional). Default is 1.
 
 ### Remove Fortifications
 To remove fortifications from a unit use `[unit,type,amount] call grad_fortifications_fnc_removeFort`:
 
-Parameter  |  Explanation
---|--
-unit | Object - The unit to remove the fortification from.  
-type  |  String - The type of fortification.
-amount | Number - The amount of fortifications to remove (optional). Default is 1.
+Parameter | Explanation
+----------|--------------------------------------------------------------------------
+unit      | Object - The unit to remove the fortification from.
+type      | String - The type of fortification.
+amount    | Number - The amount of fortifications to remove (optional). Default is 1.
