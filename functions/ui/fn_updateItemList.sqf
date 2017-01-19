@@ -12,9 +12,9 @@ disableSerialization;
 
 if (isNull _listCtrl) exitWith {};
 
-if !([player getVariable ["grad_fortifications_myFortsHash",[]]] call CBA_fnc_isHash) exitWith {ERROR("Player does not have myFortsHash.")};
+if !([player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]] call CBA_fnc_isHash) exitWith {ERROR("Player does not have myFortsHash.")};
 
-_myFortsHash = player getVariable ["grad_fortifications_myFortsHash",[]];
+_myFortsHash = player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];;
 
 lnbClear _listCtrl;
 _listIndex = 0;

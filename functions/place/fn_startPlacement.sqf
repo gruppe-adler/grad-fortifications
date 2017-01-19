@@ -7,6 +7,7 @@ _fort = [_type] call grad_fortifications_fnc_spawnFortification;
 player setVariable ["grad_fortifications_currentType", _type];
 player setVariable ["grad_fortifications_currentFort", _fort];
 player setVariable ["grad_fortifications_currentMode", _mode];
+player setVariable ["grad_fortifications_currentSize", [_type] call grad_fortifications_fnc_getObjectSize];
 player setVariable ["grad_fortifications_currentDistance", 4];
 player setVariable ["grad_fortifications_currentDirection", 0];
 

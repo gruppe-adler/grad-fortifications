@@ -10,12 +10,10 @@ grad_fortifications_mousewheelEH = (findDisplay 46) displayAddEventHandler ["Mou
         case (player getVariable ["grad_fortifications_ctrlDown",false]): {
 
         };
-        case (player getVariable ["grad_fortifications_altDown",false]): {
-
-        };
         default {
             _currentDistance = player getVariable ["grad_fortifications_currentDistance",4],
-            _newDistance = ((_currentDistance + _wheelChange/3) max 2) min 10;
+            _size = player getVariable ["grad_fortifications_currentSize",1];
+            _newDistance = ((_currentDistance + _wheelChange/5) max 3) min (1.5*_size);
             player setVariable ["grad_fortifications_currentDistance",_newDistance];
         };
     };

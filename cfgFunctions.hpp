@@ -18,6 +18,7 @@ class GRAD_fortifications {
         class addFort {};
         class addFortRemote {};
         class getDisplayName {};
+        class getObjectSize {};
         class initModule {postInit = 1;};
         class removeFort {};
     };
@@ -25,7 +26,6 @@ class GRAD_fortifications {
     class drop {
         file = MODULES_DIRECTORY\grad-fortifications\functions\drop;
 
-        class doPickup {};
         class dropFort {};
         class initDropCrate {};
     };
@@ -51,7 +51,6 @@ class GRAD_fortifications {
 
         class doBuild {};
         class doDrop {};
-        class getObjectSize {};
         class loadFortDialog {};
         class onSelChanged {};
         class rotateModel {};

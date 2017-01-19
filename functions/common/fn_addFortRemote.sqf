@@ -10,3 +10,5 @@ if (_stock+_amount <= 0) then {
 } else {
     [_myForts,_type,_stock+_amount] call CBA_fnc_hashSet;
 };
+
+_unit setVariable ["grad_fortifications_myFortsHash",_myForts];

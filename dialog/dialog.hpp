@@ -64,9 +64,9 @@ class grad_fortifications {
             idc = grad_fortifications_ITEMLIST;
 
             x = grad_fortifications_Column1_X;
-            y = grad_fortifications_BG_Y + grad_fortifications_Padding_Y;
+            y = grad_fortifications_BG_Y + grad_fortifications_Padding_Y + grad_fortifications_ItemSpace_Y;
             w = grad_fortifications_Column_W;
-            h = grad_fortifications_Column_H;
+            h = grad_fortifications_Column_H - 2*grad_fortifications_ItemSpace_Y;
 
             onLBSelChanged = "_this call grad_fortifications_fnc_onSelChanged";
         };
