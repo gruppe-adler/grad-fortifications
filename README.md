@@ -85,6 +85,7 @@ Attribute       | Default Value | Explanation
 boundingBoxSize | 1             | size factor of bounding box - smaller means collision detection is less strict
 canFloat        | 0             | can this fortification be placed while floating? (1/0)
 canCollide      | 0             | can this fortification be placed while colliding with other objects? (1/0)
+surfaceNormal   | 1             | will this fortification automatically adjust its up-vector to terrain? (1/0)
 
 ### Example:
 
@@ -98,6 +99,7 @@ class CfgGradFortifications {
 
     class Land_HBarrier_5_F {
         boundingBoxSize = 0.8;
+        surfaceNormal = 0;
     };
 };
 ```

@@ -6,7 +6,7 @@ grad_fortifications_mousewheelEH = (findDisplay 46) displayAddEventHandler ["Mou
     switch (true) do {
         case (player getVariable ["grad_fortifications_shiftDown",false]): {
             _currentDir = player getVariable ["grad_fortifications_currentDirection",0];
-            _newDirection = _currentDir + _wheelChange*2*_accelFactor;
+            _newDirection = _currentDir + _wheelChange*_accelFactor;
             player setVariable ["grad_fortifications_currentDirection", _newDirection];
         };
 

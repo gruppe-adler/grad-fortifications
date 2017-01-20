@@ -5,6 +5,7 @@ if (_type == "") exitWith {};
 _boundingBoxSize = [(missionConfigFile >> "CfgGradFortifications" >> _type >> "boundingBoxSize"),"number",1] call CBA_fnc_getConfigEntry;
 _canFloat = ([(missionConfigFile >> "CfgGradFortifications" >> _type >> "canFloat"),"number",0] call CBA_fnc_getConfigEntry) == 1;
 _canCollide = ([(missionConfigFile >> "CfgGradFortifications" >> _type >> "canCollide"),"number",0] call CBA_fnc_getConfigEntry) == 1;
+_surfaceNormal = ([(missionConfigFile >> "CfgGradFortifications" >> _type >> "surfaceNormal"),"number",1] call CBA_fnc_getConfigEntry) == 1;
 
 _fort = [_type] call grad_fortifications_fnc_spawnFortification;
 _size = [_type] call grad_fortifications_fnc_getObjectSize;
@@ -27,7 +28,7 @@ if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false
     _fort hideObjectGlobal true;
 };
 
-[player,_fort] call grad_fortifications_fnc_addUpdatePFH;
+[player,_fort,_surfaceNormal] call grad_fortifications_fnc_addUpdatePFH;
 [] call grad_fortifications_fnc_addMouseEHs;
 [] call grad_fortifications_fnc_addKeyEHs;
 
