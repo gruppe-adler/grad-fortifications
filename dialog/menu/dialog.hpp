@@ -92,6 +92,14 @@ class grad_fortifications {
             w = grad_fortifications_Button_W;
             h = grad_fortifications_Item_H;
         };
+
+        class CloseButton: grad_fortifications_RscCloseButton {
+          idc = -1;
+          x = grad_fortifications_BG_X + grad_fortifications_BG_W - grad_fortifications_ItemSpace_X - grad_fortifications_CloseButton_W;
+          y = grad_fortifications_TopBar_Y + grad_fortifications_ItemSpace_Y;
+          w = grad_fortifications_CloseButton_W;
+          h = grad_fortifications_CloseButton_W;
+        };
     };
 
     class Objects {

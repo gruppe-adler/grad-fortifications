@@ -1,9 +1,48 @@
-# GRAD Fortifications (WIP)
-GRAD Fortifications will be an object placement system similar to [Plank](https://github.com/kami-/plank), but more user friendly for mission creators and players.
+# GRAD Fortifications
+GRAD Fortifications is an object placement system similar to [Plank](https://github.com/kami-/plank), but more user friendly for mission creators and players.
+
+It allows players to:
+* select fortifications from their fortification menu
+* place or drop them
+* rotate, change distance, change height while placing
+* pick up fortifications dropped by other players
+
+It allows mission creators to:
+* give/remove fortifications to/from players with the included funtions
+* optionally configure each fortification type to change:
+  * collision detection
+  * ground detection
+  * bounding box sizes
+  * automatic alignment normal to ground surface
 
 ## Dependencies
 * [CBA_A3](https://github.com/CBATeam/CBA_A3)
 * [ACE3](https://github.com/acemod/ACE3)
+
+## Table of Contents
+<!-- TOC depthFrom:2 depthTo:2 withLinks:1 updateOnSave:0 orderedList:0 -->
+
+- [Dependencies](#dependencies)
+- [Pictures](#pictures)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Functions](#functions)
+- [Configuration](#configuration)
+- [Credits](#credits)
+
+<!-- /TOC -->
+
+
+## Pictures
+**Virtual Fortification Inventory:**  
+![](http://i.imgur.com/J3vvsR2.jpg)
+
+**Collision Detection:**  
+![](http://i.imgur.com/kJvDijj.jpg)
+
+**Dropping a Fortification:**  
+![](http://i.imgur.com/6FR7OWe.jpg)
+
 
 ## Installation
 
