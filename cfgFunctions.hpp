@@ -46,6 +46,7 @@ class GRAD_fortifications {
         class removeAllEHs {};
         class setDirection {};
         class setPosition {};
+        class setUp {};
         class spawnFortification {};
         class startPlacement {};
     };
