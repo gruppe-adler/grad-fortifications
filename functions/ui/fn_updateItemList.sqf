@@ -7,7 +7,7 @@
 #include "\x\cba\addons\main\script_macros_mission.hpp"
 
 #include "..\..\dialog\menu\defines.hpp"
-params ["_listCtrl"];
+params ["_dialog","_listCtrl"];
 disableSerialization;
 
 if (isNull _listCtrl) exitWith {};
@@ -30,5 +30,7 @@ _updateList = {
 [_myFortsHash, _updateList] call CBA_fnc_hashEachPair;
 
 _itemCount = lnbSize _listCtrl select 0;
+if (_itemCount == 0) exitWith {closeDialog grad_fortifications_DIALOG};
+
 _lastSelected = player getVariable ["grad_fortifications_ui_lastSelectedItem",0];
 if (_itemCount > _lastSelected) then {_listCtrl lnbSetCurSelRow _lastSelected};

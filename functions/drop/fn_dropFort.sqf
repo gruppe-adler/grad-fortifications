@@ -18,4 +18,4 @@ _crate = createVehicle ["Land_WoodenCrate_01_F",_pos,[],0,"NONE"];
 disableSerialization;
 _dialog = findDisplay grad_fortifications_DIALOG;
 _listCtrl = _dialog displayCtrl grad_fortifications_ITEMLIST;
-[_listCtrl] call grad_fortifications_fnc_updateItemList;
+[_dialog,_listCtrl] call grad_fortifications_fnc_updateItemList;
