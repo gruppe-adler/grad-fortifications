@@ -22,6 +22,7 @@ class GRAD_fortifications {
         class addFort {};
         class addFortRemote {};
         class getDisplayName {};
+        class getModuleRoot {};
         class getObjectSize {};
         class initModule {postInit = 1;};
         class removeFort {};

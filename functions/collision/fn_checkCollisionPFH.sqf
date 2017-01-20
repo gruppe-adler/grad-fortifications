@@ -1,6 +1,6 @@
 grad_fortifications_checkCollisionPFH = [{
     params ["_args", "_handle"];
-    _args params ["_visualLines","_boundingLines","_groundLines","_fort","_canFloat","_canCollide"];
+    _args params ["_visualLines","_boundingLines","_groundLines","_fort","_canFloat","_canCollide","_moduleRoot"];
 
     if (isNull _fort) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
 
@@ -19,16 +19,16 @@ grad_fortifications_checkCollisionPFH = [{
         if (_isColliding) then {
             _color = [1,0,0,1];
             player setVariable ["grad_fortifications_isColliding",true];
-            ["COLLIDING"] call grad_fortifications_fnc_updateHint;
+            ["COLLIDING",_moduleRoot] call grad_fortifications_fnc_updateHint;
         };
 
         if (!_isOnGround) then {
             _color = [1,1,0,1];
-            ["FLOATING"] call grad_fortifications_fnc_updateHint;
+            ["FLOATING",_moduleRoot] call grad_fortifications_fnc_updateHint;
         };
 
         if (!_isColliding && _isOnGround) then {
-            ["CANPLACE"] call grad_fortifications_fnc_updateHint;
+            ["CANPLACE",_moduleRoot] call grad_fortifications_fnc_updateHint;
         };
 
         if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {

@@ -26,5 +26,7 @@
 #define grad_fortifications_hint_X          (1.3 * X_SCALE)
 #define grad_fortifications_hint_Y          (0.3 * Y_SCALE)
 
+#define grad_fortifications_hint_textScale  (0.06 * TEXT_SCALE;)
+
 #define grad_fortifications_hint_Text_X     (grad_fortifications_hint_X + grad_fortifications_hint_picture_W + grad_fortifications_spacing_X)
 #define grad_fortifications_hint_Text_W     (grad_fortifications_hint_W - grad_fortifications_hint_picture_W - grad_fortifications_spacing_X)

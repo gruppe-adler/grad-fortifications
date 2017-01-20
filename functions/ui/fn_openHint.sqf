@@ -26,9 +26,14 @@ _l4Pic  = _hint displayCtrl grad_fortifications_hint_PIC_LINE4;
 
 _xScale = X_SCALE;
 if (_open) then {
+    _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
+
     _l1Txt ctrlSetText "ROTATE";
+    _l1Pic ctrlSetText (_moduleRoot + "\data\shiftkey.paa");
     _l2Txt ctrlSetText "LOWER/RAISE";
+    _l2Pic ctrlSetText (_moduleRoot + "\data\ctrlkey.paa");
     _l3Txt ctrlSetText "SPEED UP";
+    _l3Pic ctrlSetText (_moduleRoot + "\data\altkey.paa");
 
     {
         _lineNumber = _forEachIndex;

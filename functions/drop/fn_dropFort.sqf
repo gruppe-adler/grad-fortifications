@@ -1,19 +1,17 @@
 #include "..\..\dialog\menu\defines.hpp"
 
 params ["_type",["_mode","NORMAL"],"_pos"];
-private ["_special"];
+private ["_exact"];
 
-[player,_type] call grad_fortifications_fnc_removeFort;
+if (_mode == "NORMAL") then {
+    [player,_type] call grad_fortifications_fnc_removeFort;
+};
 
 if (isNil "_pos") then {
     _pos = (getPos player) vectorAdd [2.5,0,0];
-    _special = "NONE";
-} else {
-    _special = "CAN_COLLIDE";
 };
 
-
-_crate = createVehicle ["Land_WoodenCrate_01_F",_pos,[],0,_special];
+_crate = createVehicle ["Land_WoodenCrate_01_F",_pos,[],0,"NONE"];
 [_crate,_type] remoteExec ["grad_fortifications_fnc_initDropCrate",0,true];
 
 

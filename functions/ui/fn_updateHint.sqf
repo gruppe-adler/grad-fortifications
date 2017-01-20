@@ -3,7 +3,7 @@
 
 if (!hasInterface) exitWith {};
 
-params ["_mode"];
+params ["_mode","_moduleRoot"];
 
 disableSerialization;
 _hint   = uiNamespace getVariable "grad_fortifications_hint";
@@ -17,20 +17,20 @@ _l4Pic  = _hint displayCtrl grad_fortifications_hint_PIC_LINE4;
 
 switch (_mode) do {
     case ("COLLIDING"): {
-        _l4BG ctrlSetBackgroundColor [1,0,0,0.65];
+        _l4BG ctrlSetBackgroundColor [0.8,0,0,0.65];
         _l4Txt ctrlSetText "COLLIDING!";
-        _l4Pic ctrlSetText "";
+        _l4Pic ctrlSetText (_moduleRoot + "\data\error.paa");
     };
 
     case ("FLOATING"): {
-        _l4BG ctrlSetBackgroundColor [1,1,0,0.65];
+        _l4BG ctrlSetBackgroundColor [0.65,0.65,0,0.65];
         _l4Txt ctrlSetText "NOT ON GROUND!";
-        _l4Pic ctrlSetText "";
+        _l4Pic ctrlSetText (_moduleRoot + "\data\warning.paa");
     };
 
     case ("CANPLACE"): {
-        _l4BG ctrlSetBackgroundColor [0,1,0,0.65];
+        _l4BG ctrlSetBackgroundColor [0,0.7,0,0.65];
         _l4Txt ctrlSetText "CAN PLACE";
-        _l4Pic ctrlSetText "";
+        _l4Pic ctrlSetText (_moduleRoot + "\data\checkmark.paa");
     };
 };
