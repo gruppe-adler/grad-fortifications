@@ -72,6 +72,10 @@ shift        | rotate around z-axis
 ctrl         | change height above ground
 alt          | increase speed of other manipulations
 
+### Drop Fortifications
+You can also drop fortifications from your inventory by selecting it and hitting the *Drop* key. This will create a wooden crate near your current position. You and other players can interact with this crate with ACE and drag or carry it, load it into vehicles, pick it up into your fortification inventory, or build it directly. When canceling the placement of a fortification that you started directly, the fortification will go back into its crate on the current position.
+
+## Functions
 ### Add Fortifications
 To add fortifications to a unit use `[unit,type,amount] call grad_fortifications_fnc_addFort`:
 
