@@ -25,6 +25,7 @@ class GRAD_fortifications {
         class getObjectSize {};
         class initModule {postInit = 1;};
         class removeFort {};
+        class setCollisionDebugMode {};
     };
 
     class drop {

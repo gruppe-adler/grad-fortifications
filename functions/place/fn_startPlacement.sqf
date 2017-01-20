@@ -18,7 +18,9 @@ _visualLines = [_fort] call grad_fortifications_fnc_getVisualLines;
 _groundLines = [_fort] call grad_fortifications_fnc_getGroundLines;
 [_visualLines,_boundingLines,_groundLines,_fort] call grad_fortifications_fnc_checkCollisionPFH;
 
-/*hideObjectGlobal _fort;*/
+if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {
+    _fort hideObjectGlobal true;
+};
 
 [player,_fort] call grad_fortifications_fnc_addUpdatePFH;
 [] call grad_fortifications_fnc_addMouseEHs;

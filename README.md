@@ -56,3 +56,10 @@ Parameter | Explanation
 unit      | Object - The unit to remove the fortification from.
 type      | String - The type of fortification.
 amount    | Number - The amount of fortifications to remove (optional). Default is 1.
+
+### Collision Debug Mode
+If one of your fortifications is hard to place, you can turn on the collision debug mode to see what's causing problems with `[debugMode] call grad_fortifications_fnc_setCollisionDebugMode`:
+
+Parameter | Explanation
+----------|----------------------------------
+debugMode | Bool - Turn debug mode on or off.

@@ -23,9 +23,20 @@ grad_fortifications_checkCollisionPFH = [{
             _color = [1,1,0,1];
         };
 
-        _visualLine = _visualLinesWorld select _forEachIndex;
-        drawLine3D [_visualLine select 0, _visualLine select 1, _color];
+        if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {
+            drawLine3D [_x select 0, _x select 1, _color];
+        } else {
+            _visualLine = _visualLinesWorld select _forEachIndex;
+            drawLine3D [_visualLine select 0, _visualLine select 1, _color];
+        };
     } forEach _boundingLinesWorld;
+
+    if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {
+        _color = if (!_isOnGround) then {[1,1,0,1]} else {[0,1,0,1]};
+        {
+            drawLine3D [_x select 0,_x select 1,_color];
+        } forEach _groundLinesWorld;
+    };
 },0,_this] call CBA_fnc_addPerFrameHandler;
 
 grad_fortifications_checkCollisionPFH
