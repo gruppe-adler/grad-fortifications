@@ -1,4 +1,4 @@
-params ["_obj"];
+params ["_obj","_boundingBoxSize"];
 
 _boundingBox = boundingBoxReal _obj;
 _boundingBox params ["_p0","_p1"];
@@ -29,6 +29,6 @@ _lines = [
     [[_x1,_y0,_z1],[_x0,_y1,_z0]]
 ];
 
-_smallLines = _lines apply {[(_x select 0) vectorMultiply 0.8, (_x select 1) vectorMultiply 0.8]};
+_smallLines = _lines apply {[(_x select 0) vectorMultiply (0.8 * _boundingBoxSize), (_x select 1) vectorMultiply (0.8 * _boundingBoxSize)]};
 
 _smallLines

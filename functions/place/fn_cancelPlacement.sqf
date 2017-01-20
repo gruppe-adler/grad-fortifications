@@ -4,6 +4,8 @@ _fort = player getVariable ["grad_fortifications_currentFort", objNull];
 _fortPos = getPos _fort;
 deleteVehicle _fort;
 
+player setVariable ["grad_fortifications_isPlacing", false];
+
 _type = player getVariable ["grad_fortifications_currentType", ""];
 _mode = player getVariable ["grad_fortifications_currentMode", "NORMAL"];
 

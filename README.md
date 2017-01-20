@@ -63,3 +63,30 @@ If one of your fortifications is hard to place, you can turn on the collision de
 Parameter | Explanation
 ----------|----------------------------------
 debugMode | Bool - Turn debug mode on or off.
+
+## Configuration
+This is entirely optional. Any object will work as a fortification out of the box. However you can configure fortifications if they don't work the way you like.
+
+Add the class `CfgGradFortifications` to your `description.ext`, then put the fortifications that you want to configure into that class. These attributes are available:
+
+Attribute       | Default Value | Explanation
+----------------|---------------|-------------------------------------------------------------------------------
+boundingBoxSize | 1             | size factor of bounding box - smaller means collision detection is less strict
+canFloat        | 0             | can this fortification be placed while floating? (1/0)
+canCollide      | 0             | can this fortification be placed while colliding with other objects? (1/0)
+
+Example:
+
+```sqf
+class CfgGradFortifications {
+    class Land_BagFence_Long_F {
+        boundingBoxSize = 1;
+        canFloat = 1;
+        canCollide = 1;
+    };
+
+    class Land_HBarrier_5_F {
+        boundingBoxSize = 0.8;
+    };
+};
+```
