@@ -5,7 +5,6 @@
 #define CF_FIRST_CONTACT    16
 #define CF_ALL_OBJECTS      32
 
-
 params ["_line",["_ignoreObj",objNull]];
 
 _startPos = AGLToASL (_line select 0);

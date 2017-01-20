@@ -8,8 +8,12 @@ class GRAD_fortifications {
 
         class checkCollisionPFH {};
         class getBoundingLines {};
+        class getGroundLines {};
+        class getVisualLines {};
         class isColliding {};
+        class isOnGround {};
         class linesToWorld {};
+        class shrinkLines {};
     };
 
     class common {

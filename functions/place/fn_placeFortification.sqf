@@ -1,4 +1,4 @@
-if (player getVariable ["grad_fortifications_isColliding",true]) then {
+if (player getVariable ["grad_fortifications_isColliding",true] || !(player getVariable ["grad_fortifications_isOnGround",false])) then {
     player say2d "AddItemFailed";
 } else {
     [] call grad_fortifications_fnc_removeAllEHs;

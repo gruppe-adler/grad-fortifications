@@ -5,17 +5,17 @@ _boundingBox params ["_p0","_p1"];
 _p0 params ["_x0","_y0","_z0"];
 _p1 params ["_x1","_y1","_z1"];
 
-_lines = [
+[
     //x-axis
-    [[0,0,0],[0,0,0]],
+    [[_x0,_y0,_z0],[_x1,_y0,_z0]],
     [[_x0,_y0,_z1],[_x1,_y0,_z1]],
-    [[0,0,0],[0,0,0]],
+    [[_x0,_y1,_z0],[_x1,_y1,_z0]],
     [[_x0,_y1,_z1],[_x1,_y1,_z1]],
 
     //y-axis
-    [[0,0,0],[0,0,0]],
+    [[_x0,_y0,_z0],[_x0,_y1,_z0]],
     [[_x0,_y0,_z1],[_x0,_y1,_z1]],
-    [[0,0,0],[0,0,0]],
+    [[_x1,_y0,_z0],[_x1,_y1,_z0]],
     [[_x1,_y0,_z1],[_x1,_y1,_z1]],
 
     //z-axis
@@ -27,8 +27,4 @@ _lines = [
     //diagonals
     [[_x0,_y0,_z1],[_x1,_y1,_z0]],
     [[_x1,_y0,_z1],[_x0,_y1,_z0]]
-];
-
-_smallLines = _lines apply {[(_x select 0) vectorMultiply 0.8, (_x select 1) vectorMultiply 0.8]};
-
-_smallLines
+]
