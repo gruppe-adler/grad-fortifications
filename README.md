@@ -21,13 +21,6 @@ class CfgFunctions {
 
 class RscTitles {
     #include "modules\grad-fortifications\dialog\hint\title.hpp"
-
-    class Default {
-        idd = -1;
-        fadein = 0;
-        fadeout = 0;
-        duration = 0;
-    };
 };
 ```
 
@@ -47,13 +40,6 @@ class CfgFunctions {
 
 class RscTitles {
     #include "node_modules\grad-fortifications\dialog\hint\title.hpp"
-
-    class Default {
-        idd = -1;
-        fadein = 0;
-        fadeout = 0;
-        duration = 0;
-    };
 };
 ```
 

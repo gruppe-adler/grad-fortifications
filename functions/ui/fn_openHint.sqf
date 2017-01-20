@@ -58,6 +58,6 @@ if (_open) then {
     } forEach [[_l1BG,_l1Txt,_l1Pic],[_l2BG,_l2Txt,_l2Pic],[_l3BG,_l3Txt,_l3Pic],[_l4BG,_l4Txt,_l4Pic]];
 
     [{
-        titleRsc ["Default", "PLAIN"];
+        titleRsc ["grad_fortifications_empty", "PLAIN"];
     },[],1] call CBA_fnc_waitAndExecute;
 };

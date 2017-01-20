@@ -1,6 +1,13 @@
 #include "..\ui_toolkit.hpp"
 #include "defines.hpp"
 
+class grad_fortifications_empty {
+    idd = -1;
+    fadein = 0;
+    fadeout = 0;
+    duration = 0;
+};
+
 class grad_fortifications_hint {
     idd = grad_fortifications_hint_TITLE;
     duration = 99999;
