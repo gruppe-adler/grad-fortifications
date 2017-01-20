@@ -134,5 +134,34 @@ class grad_fortifications_hint {
             x = grad_fortifications_hint_X + grad_fortifications_spacing_X;
             y = grad_fortifications_hint_Y + 3*(grad_fortifications_spacing_Y + grad_fortifications_hint_H);
         };
+
+        class BG5: grad_fortifications_RscText {
+            idc = grad_fortifications_hint_BG_LINE5;
+
+            w = grad_fortifications_hint_W;
+            h = grad_fortifications_hint_H;
+            x = grad_fortifications_hint_X;
+            y = grad_fortifications_hint_Y + 4*(grad_fortifications_spacing_Y + grad_fortifications_hint_H);
+
+            colorBackground[] = {0,0,0,0.65};
+        };
+        class Text5: grad_fortifications_RscText {
+            idc = grad_fortifications_hint_TXT_LINE5;
+
+			sizeEx = grad_fortifications_hint_textScale;
+
+            w = grad_fortifications_hint_Text_W;
+            h = grad_fortifications_hint_H;
+            x = grad_fortifications_hint_Text_X;
+            y = grad_fortifications_hint_Y + 4*(grad_fortifications_spacing_Y + grad_fortifications_hint_H);
+        };
+        class Pic5: grad_fortifications_RscPicture {
+            idc = grad_fortifications_hint_PIC_LINE5;
+
+            w = grad_fortifications_hint_picture_W;
+            h = grad_fortifications_hint_H;
+            x = grad_fortifications_hint_X + grad_fortifications_spacing_X;
+            y = grad_fortifications_hint_Y + 4*(grad_fortifications_spacing_Y + grad_fortifications_hint_H);
+        };
     };
 };

@@ -6,9 +6,8 @@ grad_fortifications_updatePFH = [{
 
     [_unit, _fort] call grad_fortifications_fnc_setPosition;
     [_unit, _fort] call grad_fortifications_fnc_setDirection;
-    if (_surfaceNormal) then {
-        [_unit, _fort] call grad_fortifications_fnc_setUp;
-    };
+    [_unit, _fort, _surfaceNormal] call grad_fortifications_fnc_setUp;
+
 },0,_this] call CBA_fnc_addPerFrameHandler;
 
 

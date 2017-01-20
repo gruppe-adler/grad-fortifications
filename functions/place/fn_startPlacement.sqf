@@ -25,17 +25,18 @@ player setVariable ["grad_fortifications_currentSize", _size];
 player setVariable ["grad_fortifications_currentDistance", (((_size*2.5)^(1/2)) max 2)];
 player setVariable ["grad_fortifications_currentDirection", 0];
 player setVariable ["grad_fortifications_currentHeight",-0.1];
+player setVariable ["grad_fortifications_surfaceNormal",_surfaceNormal];
 
 player call ace_common_fnc_fixLoweredRifleAnimation;
 player action ["SwitchWeapon", player, player, 99];
 player forceWalk true;
 
-[true] call grad_fortifications_fnc_openHint;
+[true,_surfaceNormal] call grad_fortifications_fnc_openHint;
 
 _boundingLines = [_fort,_boundingBoxSize] call grad_fortifications_fnc_getBoundingLines;
 _visualLines = [_fort] call grad_fortifications_fnc_getVisualLines;
 _groundLines = [_fort] call grad_fortifications_fnc_getGroundLines;
-[_visualLines,_boundingLines,_groundLines,_fort,_canFloat,_canCollide,_moduleRoot] call grad_fortifications_fnc_checkCollisionPFH;
+[_visualLines,_boundingLines,_groundLines,_fort,_canFloat,_canCollide,_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_checkCollisionPFH;
 
 
 [player,_fort,_surfaceNormal] call grad_fortifications_fnc_addUpdatePFH;

@@ -12,6 +12,9 @@
 #define grad_fortifications_hint_BG_LINE4   57040
 #define grad_fortifications_hint_TXT_LINE4  57041
 #define grad_fortifications_hint_PIC_LINE4  57042
+#define grad_fortifications_hint_BG_LINE5   57050
+#define grad_fortifications_hint_TXT_LINE5  57051
+#define grad_fortifications_hint_PIC_LINE5  57052
 
 
 //DIMENSIONS AND POSITIONS =====================================================

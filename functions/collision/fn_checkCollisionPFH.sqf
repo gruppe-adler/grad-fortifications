@@ -1,6 +1,6 @@
 grad_fortifications_checkCollisionPFH = [{
     params ["_args", "_handle"];
-    _args params ["_visualLines","_boundingLines","_groundLines","_fort","_canFloat","_canCollide","_moduleRoot"];
+    _args params ["_visualLines","_boundingLines","_groundLines","_fort","_canFloat","_canCollide","_moduleRoot","_surfaceNormal"];
 
     if (isNull _fort) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
 
@@ -48,13 +48,13 @@ grad_fortifications_checkCollisionPFH = [{
     //update hint
     switch (true) do {
         case (!_isOnGround): {
-            ["FLOATING",_moduleRoot] call grad_fortifications_fnc_updateHint;
+            ["FLOATING",_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_updateHint;
         };
         case (player getVariable ["grad_fortifications_isColliding",true]): {
-            ["COLLIDING",_moduleRoot] call grad_fortifications_fnc_updateHint;
+            ["COLLIDING",_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_updateHint;
         };
         default {
-            ["CANPLACE",_moduleRoot] call grad_fortifications_fnc_updateHint;
+            ["CANPLACE",_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_updateHint;
         };
     };
 },0,_this] call CBA_fnc_addPerFrameHandler;

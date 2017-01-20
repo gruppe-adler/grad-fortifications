@@ -38,7 +38,7 @@ It allows mission creators to:
 ![](http://i.imgur.com/J3vvsR2.jpg)
 
 **Collision Detection:**  
-![](http://i.imgur.com/kJvDijj.jpg)
+![](http://i.imgur.com/6cKvbjC.jpg)
 
 **Dropping a Fortification:**  
 ![](http://i.imgur.com/6FR7OWe.jpg)
@@ -133,10 +133,10 @@ Add the class `CfgGradFortifications` to your `description.ext`, then put the fo
 
 Attribute       | Default Value | Explanation
 ----------------|---------------|-------------------------------------------------------------------------------
-boundingBoxSize | 1             | size factor of bounding box - smaller means collision detection is less strict
-canFloat        | 0             | can this fortification be placed while floating? (1/0)
-canCollide      | 0             | can this fortification be placed while colliding with other objects? (1/0)
-surfaceNormal   | 1             | will this fortification automatically adjust its up-vector to terrain? (1/0)
+boundingBoxSize | 1             | Size factor of bounding box - smaller means collision detection is less strict
+canFloat        | 0             | Can this fortification be placed while floating? (1/0)
+canCollide      | 0             | Can this fortification be placed while colliding with other objects? (1/0)
+surfaceNormal   | 1             | Will this fortification automatically adjust its up-vector to terrain? If set to 0, player will be unable to toggle this feature. (1/0)
 
 ### Example:
 
@@ -165,6 +165,7 @@ https://creativecommons.org/licenses/by/3.0/
 2. Checkmark icon (modified): *checkmark* by ✦ Shmidt Sergey ✦ from the Noun Project
 3. Not on ground icon (modified): *Error* by Shastry from the Noun Project
 4. Collision icon (modified): *Cross* by Doub.co from the Noun Project
+5. Surfacenormal toggle icon (modified): *tab* by icon 54 from the Noun Project
 
 ### Flaticon Basic
 http://file000.flaticon.com/downloads/license/license.pdf
