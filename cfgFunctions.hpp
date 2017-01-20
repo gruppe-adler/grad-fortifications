@@ -59,7 +59,9 @@ class GRAD_fortifications {
         class doDrop {};
         class loadFortDialog {};
         class onSelChanged {};
+        class openHint {};
         class rotateModel {};
+        class updateHint {};
         class updateItemList {};
         class updateModel {};
     };

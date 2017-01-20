@@ -19,10 +19,16 @@ grad_fortifications_checkCollisionPFH = [{
         if (_isColliding) then {
             _color = [1,0,0,1];
             player setVariable ["grad_fortifications_isColliding",true];
+            ["COLLIDING"] call grad_fortifications_fnc_updateHint;
         };
 
         if (!_isOnGround) then {
             _color = [1,1,0,1];
+            ["FLOATING"] call grad_fortifications_fnc_updateHint;
+        };
+
+        if (!_isColliding && _isOnGround) then {
+            ["CANPLACE"] call grad_fortifications_fnc_updateHint;
         };
 
         if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {

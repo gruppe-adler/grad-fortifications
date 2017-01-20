@@ -1,4 +1,4 @@
-#include "..\..\dialog\defines.hpp"
+#include "..\..\dialog\menu\defines.hpp"
 
 params ["_type",["_mode","NORMAL"],"_pos"];
 private ["_special"];

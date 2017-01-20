@@ -18,6 +18,17 @@ GRAD Fortifications will be an object placement system similar to [Plank](https:
 class CfgFunctions {
     #include "modules\grad-fortifications\cfgFunctions.hpp"
 };
+
+class RscTitles {
+    #include "modules\grad-fortifications\dialog\hint\title.hpp"
+
+    class Default {
+        idd = -1;
+        fadein = 0;
+        fadeout = 0;
+        duration = 0;
+    };
+};
 ```
 
 ### Via `npm`
@@ -32,6 +43,17 @@ _for details about what npm is and how to use it, look it up on [npmjs.com](http
 
 class CfgFunctions {
     #include "node_modules\grad-fortifications\cfgFunctions.hpp"
+};
+
+class RscTitles {
+    #include "node_modules\grad-fortifications\dialog\hint\title.hpp"
+
+    class Default {
+        idd = -1;
+        fadein = 0;
+        fadeout = 0;
+        duration = 0;
+    };
 };
 ```
 

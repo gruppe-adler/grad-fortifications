@@ -3,5 +3,5 @@
 #include "dialog\baseDefines.hpp"
 #include "dialog\baseRsc.hpp"
 
-#include "dialog\defines.hpp"
-#include "dialog\dialog.hpp"
+#include "dialog\menu\defines.hpp"
+#include "dialog\menu\dialog.hpp"

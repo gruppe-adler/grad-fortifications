@@ -19,6 +19,8 @@ player setVariable ["grad_fortifications_currentDistance", (((_size*2.5)^(1/2)) 
 player setVariable ["grad_fortifications_currentDirection", 0];
 player setVariable ["grad_fortifications_currentHeight",0];
 
+[true] call grad_fortifications_fnc_openHint;
+
 _boundingLines = [_fort,_boundingBoxSize] call grad_fortifications_fnc_getBoundingLines;
 _visualLines = [_fort] call grad_fortifications_fnc_getVisualLines;
 _groundLines = [_fort] call grad_fortifications_fnc_getGroundLines;
@@ -32,4 +34,4 @@ if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false
 [] call grad_fortifications_fnc_addMouseEHs;
 [] call grad_fortifications_fnc_addKeyEHs;
 
-["Place", "Cancel"] call ace_interaction_fnc_showMouseHint;
+["Place", "Cancel", "Manipulate"] call ace_interaction_fnc_showMouseHint;

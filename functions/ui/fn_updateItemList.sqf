@@ -6,7 +6,7 @@
 #define COMPONENT fortifications
 #include "\x\cba\addons\main\script_macros_mission.hpp"
 
-#include "..\..\dialog\defines.hpp"
+#include "..\..\dialog\menu\defines.hpp"
 params ["_listCtrl"];
 disableSerialization;
 

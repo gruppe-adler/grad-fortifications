@@ -1,4 +1,4 @@
-#include "..\..\dialog\defines.hpp"
+#include "..\..\dialog\menu\defines.hpp"
 
 disableSerialization;
 createDialog "grad_fortifications";

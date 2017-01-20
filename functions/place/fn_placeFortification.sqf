@@ -4,6 +4,7 @@ if (player getVariable ["grad_fortifications_isColliding",true] || !(player getV
 
 } else {
     [] call grad_fortifications_fnc_removeAllEHs;
+    [false] call grad_fortifications_fnc_openHint;
     player setVariable ["grad_fortifications_isPlacing", false];
 
     if (player getVariable ["grad_fortifications_currentMode", "NORMAL"] == "NORMAL") then {
