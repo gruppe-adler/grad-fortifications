@@ -12,6 +12,11 @@ _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
 _fort = [_type] call grad_fortifications_fnc_spawnFortification;
 _size = [_type] call grad_fortifications_fnc_getObjectSize;
 
+[player,_fort,true] remoteExec ["grad_fortifications_fnc_hideObjectClients",0,false];
+if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {
+    _fort hideObjectGlobal true;
+};
+
 player setVariable ["grad_fortifications_isPlacing", true];
 player setVariable ["grad_fortifications_currentType", _type];
 player setVariable ["grad_fortifications_currentFort", _fort];
@@ -32,9 +37,6 @@ _visualLines = [_fort] call grad_fortifications_fnc_getVisualLines;
 _groundLines = [_fort] call grad_fortifications_fnc_getGroundLines;
 [_visualLines,_boundingLines,_groundLines,_fort,_canFloat,_canCollide,_moduleRoot] call grad_fortifications_fnc_checkCollisionPFH;
 
-if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {
-    _fort hideObjectGlobal true;
-};
 
 [player,_fort,_surfaceNormal] call grad_fortifications_fnc_addUpdatePFH;
 [] call grad_fortifications_fnc_addMouseEHs;

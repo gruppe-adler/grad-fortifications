@@ -46,6 +46,7 @@ class GRAD_fortifications {
         class addMouseEHs {};
         class addUpdatePFH {};
         class cancelPlacement {};
+        class hideObjectClients {};
         class placeFortification {};
         class removeAllEHs {};
         class setDirection {};
