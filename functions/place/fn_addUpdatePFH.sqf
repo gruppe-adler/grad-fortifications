@@ -2,8 +2,7 @@ grad_fortifications_updatePFH = [{
     params ["_args", "_handle"];
     _args params ["_unit", "_fort", "_surfaceNormal"];
 
-    if (isNull _fort) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
-    if (!alive _unit) exitWith {deleteVehicle _fort; [_handle] call CBA_fnc_removePerFrameHandler};
+    if (isNull _fort || !alive _unit || currentWeapon _unit != "") exitWith {[] call grad_fortifications_fnc_cancelPlacement};
 
     [_unit, _fort] call grad_fortifications_fnc_setPosition;
     [_unit, _fort] call grad_fortifications_fnc_setDirection;

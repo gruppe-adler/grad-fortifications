@@ -10,6 +10,8 @@ grad_fortifications_checkCollisionPFH = [{
 
     _isOnGround = if (_canFloat) then {true} else {[_groundLinesWorld,_fort] call grad_fortifications_fnc_isOnGround};
 
+
+    //check bounding box
     player setVariable ["grad_fortifications_isColliding",false];
     player setVariable ["grad_fortifications_isOnGround",_isOnGround];
     {
@@ -19,16 +21,10 @@ grad_fortifications_checkCollisionPFH = [{
         if (_isColliding) then {
             _color = [1,0,0,1];
             player setVariable ["grad_fortifications_isColliding",true];
-            ["COLLIDING",_moduleRoot] call grad_fortifications_fnc_updateHint;
         };
 
         if (!_isOnGround) then {
             _color = [1,1,0,1];
-            ["FLOATING",_moduleRoot] call grad_fortifications_fnc_updateHint;
-        };
-
-        if (!_isColliding && _isOnGround) then {
-            ["CANPLACE",_moduleRoot] call grad_fortifications_fnc_updateHint;
         };
 
         if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {
@@ -39,11 +35,27 @@ grad_fortifications_checkCollisionPFH = [{
         };
     } forEach _boundingLinesWorld;
 
+
+    //draw ground lines if debug mode
     if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {
         _color = if (!_isOnGround) then {[1,1,0,1]} else {[0,1,0,1]};
         {
             drawLine3D [_x select 0,_x select 1,_color];
         } forEach _groundLinesWorld;
+    };
+
+
+    //update hint
+    switch (true) do {
+        case (!_isOnGround): {
+            ["FLOATING",_moduleRoot] call grad_fortifications_fnc_updateHint;
+        };
+        case (player getVariable ["grad_fortifications_isColliding",true]): {
+            ["COLLIDING",_moduleRoot] call grad_fortifications_fnc_updateHint;
+        };
+        default {
+            ["CANPLACE",_moduleRoot] call grad_fortifications_fnc_updateHint;
+        };
     };
 },0,_this] call CBA_fnc_addPerFrameHandler;
 

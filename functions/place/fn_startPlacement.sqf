@@ -21,6 +21,10 @@ player setVariable ["grad_fortifications_currentDistance", (((_size*2.5)^(1/2)) 
 player setVariable ["grad_fortifications_currentDirection", 0];
 player setVariable ["grad_fortifications_currentHeight",-0.1];
 
+player call ace_common_fnc_fixLoweredRifleAnimation;
+player action ["SwitchWeapon", player, player, 99];
+player forceWalk true;
+
 [true] call grad_fortifications_fnc_openHint;
 
 _boundingLines = [_fort,_boundingBoxSize] call grad_fortifications_fnc_getBoundingLines;
