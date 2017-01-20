@@ -1,5 +1,6 @@
 [] call grad_fortifications_fnc_removeAllEHs;
 [false] call grad_fortifications_fnc_openHint;
+call ace_interaction_fnc_hideMouseHint;
 
 _fort = player getVariable ["grad_fortifications_currentFort", objNull];
 _fortPos = getPos _fort;

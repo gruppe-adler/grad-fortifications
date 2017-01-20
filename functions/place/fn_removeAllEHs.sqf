@@ -7,5 +7,3 @@
 [grad_fortifications_checkCollisionPFH] call CBA_fnc_removePerFrameHandler;
 
 player removeAction grad_fortifications_fireOverride;
-
-["", ""] call ace_interaction_fnc_showMouseHint;

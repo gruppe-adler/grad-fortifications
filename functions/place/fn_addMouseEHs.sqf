@@ -24,7 +24,7 @@ grad_fortifications_mousewheelEH = (findDisplay 46) displayAddEventHandler ["Mou
         };
     };
 
-    true
+    false
 }];
 
 grad_fortifications_mousebuttonEH = (findDisplay 46) displayAddEventHandler ["MouseButtonUp", {
@@ -41,7 +41,7 @@ grad_fortifications_mousebuttonEH = (findDisplay 46) displayAddEventHandler ["Mo
         };
     };
 
-    true
+    false
 }];
 
 grad_fortifications_fireOverride = player addAction ["", {true}, "", 0, false, true, "DefaultAction", "true"];

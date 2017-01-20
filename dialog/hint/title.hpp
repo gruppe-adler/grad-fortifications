@@ -54,7 +54,7 @@ class grad_fortifications_hint {
         class Text2: grad_fortifications_RscText {
             idc = grad_fortifications_hint_TXT_LINE2;
 
-			sizeEx = grad_fortifications_hint_textScale;;
+			sizeEx = grad_fortifications_hint_textScale;
 
             w = grad_fortifications_hint_Text_W;
             h = grad_fortifications_hint_H;

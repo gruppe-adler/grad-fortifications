@@ -10,6 +10,9 @@ if (_open) then {
 
 disableSerialization;
 _hint   = uiNamespace getVariable "grad_fortifications_hint";
+
+if (isNull _hint) exitWith {};
+
 _l1BG   = _hint displayCtrl grad_fortifications_hint_BG_LINE1;
 _l1Txt  = _hint displayCtrl grad_fortifications_hint_TXT_LINE1;
 _l1Pic  = _hint displayCtrl grad_fortifications_hint_PIC_LINE1;
