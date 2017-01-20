@@ -32,8 +32,10 @@ class GRAD_fortifications {
     class drop {
         file = MODULES_DIRECTORY\grad-fortifications\functions\drop;
 
+        class buildDroppedClient {};
         class dropFort {};
         class initDropCrate {};
+        class requestInteractionServer {};
     };
 
 
