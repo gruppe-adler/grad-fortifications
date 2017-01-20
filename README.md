@@ -39,6 +39,17 @@ class CfgFunctions {
 ### Build Fortifications
 To build a fortification, open up your fortification menu with ACE-Selfinteraction go to Equipment and Fortifications. If the action is not shown, you don't have any fortifications in your inventory.
 
+Select a fortification from the menu and hit build to start placement. Collision lines will be drawn around the object. If any line is red, that line is colliding with something. If all lines are yellow, the fortification is not on the ground.
+
+Use the mousewheel to manipulate the fortification. Use any of these modifier keys:
+
+Modifier Key | Effect
+-------------|--------------------------------------
+none         | change distance to player
+shift        | rotate around z-axis
+ctrl         | change height above ground
+alt          | increase speed of other manipulations
+
 ### Add Fortifications
 To add fortifications to a unit use `[unit,type,amount] call grad_fortifications_fnc_addFort`:
 
@@ -75,7 +86,7 @@ boundingBoxSize | 1             | size factor of bounding box - smaller means co
 canFloat        | 0             | can this fortification be placed while floating? (1/0)
 canCollide      | 0             | can this fortification be placed while colliding with other objects? (1/0)
 
-Example:
+### Example:
 
 ```sqf
 class CfgGradFortifications {
