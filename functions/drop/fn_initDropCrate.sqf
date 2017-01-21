@@ -1,11 +1,11 @@
-params ["_crate","_type","_isCUP"];
+params ["_crate","_type"];
 
 if (isNil "_crate") exitWith {};
 if (isNull _crate) exitWith {};
 
 _crate setVariable ["grad_fortifications_dropCrate_type", _type];
 
-if (_isCUP) then {
+if (isClass (configfile >> "CfgPatches" >> "CUP_Core")) then {
     [_crate,true] call ace_dragging_fnc_setDraggable;
     [_crate,true] call ace_dragging_fnc_setCarryable;
     [_crate,true] call ace_cargo_fnc_makeLoadable;
