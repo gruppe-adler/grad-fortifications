@@ -1,22 +1,6 @@
 # GRAD Fortifications
 GRAD Fortifications is an object placement system similar to [Plank](https://github.com/kami-/plank), but more user friendly for mission creators and players.
 
-It allows players to:
-* select fortifications from their fortification menu
-* place or drop them
-* rotate, change distance, change height while placing
-* pick up fortifications dropped by other players
-
-It allows mission creators to:
-* give/remove fortifications to/from players with the included funtions
-* optionally configure each fortification type to change:
-  * collision detection
-  * ground detection
-  * bounding box sizes
-  * automatic alignment normal to ground surface
-
-GRAD MoneyMenu is multiplayer and JIP proof.
-
 # [Fortifications WIKI](https://github.com/gruppe-adler/grad-fortifications/wiki)
 Information on installation, configuration and usage here.
 
