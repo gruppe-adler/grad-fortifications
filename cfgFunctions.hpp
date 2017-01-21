@@ -22,6 +22,7 @@ class GRAD_fortifications {
         class addFort {};
         class addFortRemote {};
         class allowDemolition {};
+        class canTake {};
         class doAnimation {};
         class getDisplayName {};
         class getModuleRoot {};
@@ -39,6 +40,7 @@ class GRAD_fortifications {
         class dropFort {};
         class initDropCrate {};
         class requestInteractionServer {};
+        class respondInteractionClient {};
     };
 
 

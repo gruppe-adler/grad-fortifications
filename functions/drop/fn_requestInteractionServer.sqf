@@ -1,15 +1,13 @@
 params ["_crate","_unit","_mode"];
 
 _fortType = _crate getVariable ["grad_fortifications_dropCrate_type",""];
-_crate setVariable ["grad_fortifications_dropCrate_type",""];
-deleteVehicle _crate;
-
-if (_fortType == "" || isNull _crate) exitWith {};
 
 if (_mode == "TAKE") then {
-    [_unit,_fortType,1] call grad_fortifications_fnc_addFort;
-};
-
-if (_mode == "BUILD") then {
-    [_unit,_fortType] remoteExec ["grad_fortifications_fnc_buildDroppedClient",0,false];
+    if ([_unit,_fortType,1,true] call grad_fortifications_fnc_canTake) then {
+        [_crate,_unit,_mode] remoteExec ["grad_fortifications_fnc_respondInteractionClient",2,false];
+    } else {
+        player say2d "AddItemFailed";
+    };
+} else {
+    [_crate,_unit,_mode] remoteExec ["grad_fortifications_fnc_respondInteractionClient",2,false];
 };

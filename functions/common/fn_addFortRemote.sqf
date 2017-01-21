@@ -11,4 +11,9 @@ if (_stock+_amount <= 0) then {
     [_myForts,_type,_stock+_amount] call CBA_fnc_hashSet;
 };
 
+_size = [_type] call grad_fortifications_fnc_getObjectSize;
+if (_amount < 0) then {_size = -_size};
+if (_stock+_amount >= 0) then {
+    _unit setVariable ["grad_fortifications_inventoryCargo",(_unit getVariable ["grad_fortifications_inventoryCargo",0]) + _size, true];
+};
 _unit setVariable ["grad_fortifications_myFortsHash",_myForts];
