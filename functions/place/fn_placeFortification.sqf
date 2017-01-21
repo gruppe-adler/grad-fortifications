@@ -5,10 +5,16 @@ if (player getVariable ["grad_fortifications_isColliding",true] || !(player getV
 } else {
     [] call grad_fortifications_fnc_removeAllEHs;
     call ace_interaction_fnc_hideMouseHint;
-    [player,player getVariable ["grad_fortifications_currentFort", objNull],true] remoteExec ["grad_fortifications_fnc_hideObjectClients",0,false];
+
+
     player forceWalk false;
     [false] call grad_fortifications_fnc_openHint;
     player setVariable ["grad_fortifications_isPlacing", false];
+
+
+    _fort = player getVariable ["grad_fortifications_currentFort", objNull];
+    [_fort] remoteExec ["grad_fortifications_fnc_initFort",0,true];
+
 
     if (player getVariable ["grad_fortifications_currentMode", "NORMAL"] == "NORMAL") then {
         [player,player getVariable ["grad_fortifications_currentType",""],1] call grad_fortifications_fnc_removeFort;

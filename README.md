@@ -100,6 +100,9 @@ alt          | increase speed of other manipulations
 ### Drop Fortifications
 You can also drop fortifications from your inventory by selecting it and hitting the *Drop* key. This will create a wooden crate near your current position. You and other players can interact with this crate with ACE and drag or carry it, load it into vehicles, pick it up into your fortification inventory, or build it directly. When canceling the placement of a fortification that you started directly, the fortification will go back into its crate on the current position.
 
+### Demolish Fortifications
+By default you can demolish fortifications that you and other players placed. This is configurable. Interact with a fortification with ACE, then select *Demolish fortification*. The time it takes to demolish depends on the size of the fortification.
+
 ## Functions
 ### Add Fortifications
 To add fortifications to a unit use `[unit,type,amount] call grad_fortifications_fnc_addFort`:
@@ -119,6 +122,14 @@ unit      | Object - The unit to remove the fortification from.
 type      | String - The type of fortification.
 amount    | Number - The amount of fortifications to remove (optional). Default is 1.
 
+### Allow Demolition
+To set whether a unit can demolish fortifications use `[unit,allow] call grad_fortifications_fnc_allowDemolition`. This overwrites the `canDemolishDefault` config value. Function has global effect.
+
+Parameter | Explanation
+----------|-------------------------------------------------
+unit      | Object - The unit to allow/disallow demolishing.
+allow     | Bool - Allow or disallow demolishing.
+
 ### Collision Debug Mode
 If one of your fortifications is hard to place, you can turn on the collision debug mode to see what's causing problems with `[debugMode] call grad_fortifications_fnc_setCollisionDebugMode`:
 
@@ -127,9 +138,16 @@ Parameter | Explanation
 debugMode | Bool - Turn debug mode on or off.
 
 ## Configuration
-This is entirely optional. Any object will work as a fortification out of the box. However you can configure fortifications if they don't work the way you like.
 
-Add the class `CfgGradFortifications` to your `description.ext`, then put the fortifications that you want to configure into that class. These attributes are available:
+
+Add the class `CfgGradFortifications` to your `description.ext` and set any of these attributes to configure the module:
+
+Attribute          | Default Value | Explanation
+-------------------|---------------|-----------------------------------------------------
+canDemolishDefault | 1             | Can anyone demolish fortifications by default? (1/0)
+demolishTimeFactor | 1             | Higher means demolitions take longer.
+
+Now create classes for all fortifications that you want to configure in `CfgGradFortifications`. This is entirely optional. Any object will work as a fortification out of the box. However you can configure fortifications if they don't work the way you like. These attributes are available:
 
 Attribute       | Default Value | Explanation
 ----------------|---------------|-------------------------------------------------------------------------------
@@ -137,20 +155,28 @@ boundingBoxSize | 1             | Size factor of bounding box - smaller means co
 canFloat        | 0             | Can this fortification be placed while floating? (1/0)
 canCollide      | 0             | Can this fortification be placed while colliding with other objects? (1/0)
 surfaceNormal   | 1             | Will this fortification automatically adjust its up-vector to terrain? If set to 0, player will be unable to toggle this feature. (1/0)
+canDemolish     | 1             | Can this fortification be demolished? (1/0)
+demolitionTime  | nil           | Sets demolishing time in seconds for this type of fortification. Overrides `demolitionTimeFactor` and the size-dependent time.
+
 
 ### Example:
 
 ```sqf
 class CfgGradFortifications {
+    canDemolishDefault = 1;
+    demolitionTimeFactor = 1;
+
     class Land_BagFence_Long_F {
         boundingBoxSize = 1;
         canFloat = 1;
         canCollide = 1;
+        demolitionTime = 10;
     };
 
     class Land_HBarrier_5_F {
         boundingBoxSize = 0.8;
         surfaceNormal = 0;
+        canDemolish = 0;
     };
 };
 ```

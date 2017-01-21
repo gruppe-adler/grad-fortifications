@@ -21,12 +21,15 @@ class GRAD_fortifications {
 
         class addFort {};
         class addFortRemote {};
+        class allowDemolition {};
+        class doAnimation {};
         class getDisplayName {};
         class getModuleRoot {};
         class getObjectSize {};
         class initModule {postInit = 1;};
         class removeFort {};
         class setCollisionDebugMode {};
+        class stopAnimation {};
     };
 
     class drop {
@@ -46,7 +49,9 @@ class GRAD_fortifications {
         class addMouseEHs {};
         class addUpdatePFH {};
         class cancelPlacement {};
+        class demolish {};
         class hideObjectClients {};
+        class initFort {};
         class placeFortification {};
         class removeAllEHs {};
         class setDirection {};
