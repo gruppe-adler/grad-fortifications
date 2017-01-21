@@ -11,6 +11,8 @@ _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
 
 _fort = [_type] call grad_fortifications_fnc_spawnFortification;
 _size = [_type] call grad_fortifications_fnc_getObjectSize;
+_fort allowDamage false;
+_fort disableCollisionWith player;
 
 [player,_fort,true] remoteExec ["grad_fortifications_fnc_hideObjectClients",0,false];
 if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {

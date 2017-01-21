@@ -11,5 +11,5 @@ if (_mode == "TAKE") then {
 };
 
 if (_mode == "BUILD") then {
-    [_unit,_fortType] call grad_fortifications_fnc_buildDroppedClient;
+    [_unit,_fortType] remoteExec ["grad_fortifications_fnc_buildDroppedClient",0,false];
 };

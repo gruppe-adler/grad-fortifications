@@ -1,9 +1,15 @@
-params ["_crate","_type"];
+params ["_crate","_type","_isCUP"];
 
 if (isNil "_crate") exitWith {};
 if (isNull _crate) exitWith {};
 
 _crate setVariable ["grad_fortifications_dropCrate_type", _type];
+
+if (_isCUP) then {
+    [_crate,true] call ace_dragging_fnc_setDraggable;
+    [_crate,true] call ace_dragging_fnc_setCarryable;
+    [_crate,true] call ace_cargo_fnc_makeLoadable;
+};
 
 _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
 _displayName = [_type] call grad_fortifications_fnc_getDisplayName;

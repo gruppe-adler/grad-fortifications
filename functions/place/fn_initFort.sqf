@@ -3,7 +3,10 @@ params ["_fort"];
 if (isNull _fort) exitWith {};
 
 _fort hideObject false;
+_fort allowDamage true;
+_fort enableCollisionWith player;
 _type = typeOf _fort;
+
 
 //demolition
 _canDemolish = ([(missionConfigFile >> "CfgGradFortifications" >> _type >> "canDemolish"),"number",1] call CBA_fnc_getConfigEntry) == 1;
