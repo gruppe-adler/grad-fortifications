@@ -1,6 +1,7 @@
 grad_fortifications_canDemolishDefault = ([(missionConfigFile >> "CfgGradFortifications" >> "canDemolishDefault"),"number",0] call CBA_fnc_getConfigEntry) == 1;
 grad_fortifications_demolishTimeFactor = [(missionConfigFile >> "CfgGradFortifications" >> "demolishTimeFactor"),"number",1] call CBA_fnc_getConfigEntry;
 grad_fortifications_inventorySize = [(missionConfigFile >> "CfgGradFortifications" >> "inventorySize"),"number",999999] call CBA_fnc_getConfigEntry;
+grad_fortifications_boundingBoxSize = [(missionConfigFile >> "CfgGradFortifications" >> "boundingBoxSize"),"number",1] call CBA_fnc_getConfigEntry;
 
 if (hasInterface) then {
     player setVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];

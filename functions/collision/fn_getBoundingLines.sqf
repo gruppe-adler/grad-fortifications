@@ -29,6 +29,6 @@ _lines = [
     [[_x1,_y0,_z1],[_x0,_y1,_z0]]
 ];
 
-_smallLines = _lines apply {[(_x select 0) vectorMultiply (0.8 * _boundingBoxSize), (_x select 1) vectorMultiply (0.8 * _boundingBoxSize)]};
+_smallLines = _lines apply {[(_x select 0) vectorMultiply (0.8 * _boundingBoxSize * grad_fortifications_boundingBoxSize), (_x select 1) vectorMultiply (0.8 * _boundingBoxSize * grad_fortifications_boundingBoxSize)]};
 
 _smallLines
