@@ -19,4 +19,4 @@ _crate = createVehicle [_crateType,_pos,[],0,"NONE"];
 disableSerialization;
 _dialog = findDisplay grad_fortifications_DIALOG;
 _listCtrl = _dialog displayCtrl grad_fortifications_ITEMLIST;
-[_dialog,_listCtrl] call grad_fortifications_fnc_updateItemList;
+[] call grad_fortifications_fnc_updateItemList;

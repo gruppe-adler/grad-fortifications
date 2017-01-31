@@ -74,7 +74,7 @@ class grad_fortifications {
         class BuildButton: grad_fortifications_RscButton {
             idc = grad_fortifications_BUILDBUTTON;
             text = "BUILD";
-            action = "_this call grad_fortifications_fnc_doBuild; closeDialog 0";
+            action = "['NORMAL'] call grad_fortifications_fnc_doBuild; closeDialog 0";
 
             x = grad_fortifications_BG_X + grad_fortifications_BG_W - grad_fortifications_Button_W;
             y = grad_fortifications_BG_Y + grad_fortifications_BG_H + grad_fortifications_ItemSpace_Y;

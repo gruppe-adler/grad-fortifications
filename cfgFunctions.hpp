@@ -68,6 +68,7 @@ class GRAD_fortifications {
 
         class doBuild {};
         class doDrop {};
+        class doTake {};
         class loadFortDialog {};
         class onSelChanged {};
         class openHint {};
