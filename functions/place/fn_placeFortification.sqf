@@ -6,21 +6,17 @@ if (player getVariable ["grad_fortifications_isColliding",true] || !(player getV
     [] call grad_fortifications_fnc_removeAllEHs;
     call ace_interaction_fnc_hideMouseHint;
 
-
     player forceWalk false;
     [false] call grad_fortifications_fnc_openHint;
     player setVariable ["grad_fortifications_isPlacing", false];
 
-
     _fort = player getVariable ["grad_fortifications_currentFort", objNull];
-    [_fort] remoteExec ["grad_fortifications_fnc_initFort",0,true];
+    _spawnParams = [typeOf _fort, getDir _fort, vectorUp _fort, getPosASL _fort];
+    deleteVehicle _fort;
+    _spawnParams remoteExec ["grad_fortifications_fnc_spawnFortification",2,false];
 
 
     if (player getVariable ["grad_fortifications_currentMode", "NORMAL"] == "NORMAL") then {
         [player,player getVariable ["grad_fortifications_currentType",""],1] call grad_fortifications_fnc_removeFort;
-    };
-
-    if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {
-        (player getVariable ["grad_fortifications_currentFort", objNull]) hideObjectGlobal false;
     };
 };
