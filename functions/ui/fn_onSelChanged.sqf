@@ -18,6 +18,7 @@ if (_control == _listCtrl) then {
     _targetContainer = player getVariable ["grad_fortifications_currentContainer",player];
 } else {
     _selectedContainer = player getVariable ["grad_fortifications_currentContainer",player];
+    _selectedContainer setVariable ["grad_fortifications_ui_lastSelectedItem", _curSel];
     _targetContainer = player;
 };
 
