@@ -1,19 +1,16 @@
 grad_fortifications_canDemolishDefault = ([(missionConfigFile >> "CfgGradFortifications" >> "canDemolishDefault"),"number",0] call CBA_fnc_getConfigEntry) == 1;
 grad_fortifications_demolishTimeFactor = [(missionConfigFile >> "CfgGradFortifications" >> "demolishTimeFactor"),"number",1] call CBA_fnc_getConfigEntry;
-grad_fortifications_inventorySize = [(missionConfigFile >> "CfgGradFortifications" >> "inventorySize"),"number",999999] call CBA_fnc_getConfigEntry;
-grad_fortifications_boundingBoxSize = [(missionConfigFile >> "CfgGradFortifications" >> "boundingBoxSize"),"number",1] call CBA_fnc_getConfigEntry;
+grad_fortifications_playerInventorySize = [(missionConfigFile >> "CfgGradFortifications" >> "playerInventorySize"),"number",70] call CBA_fnc_getConfigEntry;
+grad_fortifications_boundingBoxSizeFactor = [(missionConfigFile >> "CfgGradFortifications" >> "boundingBoxSizeFactor"),"number",1] call CBA_fnc_getConfigEntry;
+grad_fortifications_vehicleInventorySizeFactor = [(missionConfigFile >> "CfgGradFortifications" >> "vehicleInventorySizeFactor"),"number",1] call CBA_fnc_getConfigEntry;
 
 if (hasInterface) then {
     player setVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];
+    player setVariable ["grad_fortifications_inventorySize",grad_fortifications_playerInventorySize];
     player setVariable ["grad_fortifications_inventoryCargo",0, true];
 
     _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
-    _action = ["grad_fortifications_mainBuildAction", "Fortifications", _moduleRoot + "\data\sandbags.paa", {[grad_fortifications_fnc_loadFortDialog,[_this select 0, _this select 1, "PLAYER"]] call CBA_fnc_execNextFrame}, {vehicle player == player && count ((player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]) select 1) > 0 && !(player getVariable ["grad_fortifications_isPlacing", false])}] call ace_interact_menu_fnc_createAction;
+    [] call grad_fortifications_fnc_addVehicleInteractions;
+    _action = ["grad_fortifications_mainBuildAction", "Fortifications", _moduleRoot + "\data\sandbags.paa", {[grad_fortifications_fnc_loadFortDialog,[_this select 0, _this select 1]] call CBA_fnc_execNextFrame}, {vehicle player == player && count ((player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]) select 1) > 0 && !(player getVariable ["grad_fortifications_isPlacing", false])}] call ace_interact_menu_fnc_createAction;
     ["CAManBase",1,["ACE_SelfActions","ACE_Equipment"],_action,true] call ace_interact_menu_fnc_addActionToClass;
-
-    _action = ["grad_fortifications_containerBuildAction", "Fortifications", _moduleRoot + "\data\sandbags.paa", {[grad_fortifications_fnc_loadFortDialog,[_this select 0, _this select 1, "CONTAINER"]] call CBA_fnc_execNextFrame}, {vehicle player == player && count (((_this select 0) getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]) select 1) > 0 && !(player getVariable ["grad_fortifications_isPlacing", false])}] call ace_interact_menu_fnc_createAction;
-    ["LandVehicle",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
-    ["Ship",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
-    ["Helicopter",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
-    ["Plane",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
 };

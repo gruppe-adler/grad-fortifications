@@ -7,6 +7,8 @@
 #include "\x\cba\addons\main\script_macros_mission.hpp"
 
 #include "..\..\dialog\menu\defines.hpp"
+#include "..\..\dialog\vehicle\defines.hpp"
+
 params [["_container",player]];
 disableSerialization;
 
@@ -14,31 +16,51 @@ if (player getVariable ["grad_fortifications_currentContainer", player] != _cont
 
 _dialog = findDisplay grad_fortifications_DIALOG;
 _listCtrl = _dialog displayCtrl grad_fortifications_ITEMLIST;
+_vehicleListCtrl = _dialog displayCtrl grad_fortifications_vehicle_ITEMLIST;
 if (isNull _listCtrl) exitWith {};
 
-if !([_container getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]] call CBA_fnc_isHash) exitWith {ERROR("Container does not have myFortsHash.")};
+if !([player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]] call CBA_fnc_isHash) exitWith {ERROR("Player does not have myFortsHash.")};
 
-_myFortsHash = _container getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];;
+_myFortsHash = player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];;
+_containerFortsHash = _container getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];;
 
-lnbClear _listCtrl;
-_listIndex = 0;
-_updateList = {
-    _displayName = [_key] call grad_fortifications_fnc_getDisplayName;
+{
+    _x params ["_control","_hash"];
+    if (isNull _control) exitWith {};
 
-    if (_value > 0) then {
-        _listCtrl lnbAddRow [str _value, _displayName];
-        _listCtrl lnbSetData [[_listIndex,0], _key];
-        _listIndex = _listIndex + 1;
+    lnbClear _control;
+    _listIndex = 0;
+    _updateList = {
+        _displayName = [_key] call grad_fortifications_fnc_getDisplayName;
+
+        if (_value > 0) then {
+            _control lnbAddRow [str _value, _displayName];
+            _control lnbSetData [[_listIndex,0], _key];
+            _listIndex = _listIndex + 1;
+        };
     };
-};
-[_myFortsHash, _updateList] call CBA_fnc_hashEachPair;
+    [_hash, _updateList] call CBA_fnc_hashEachPair;
 
-_itemCount = lnbSize _listCtrl select 0;
+} forEach [[_listCtrl,_myFortsHash],[_vehicleListCtrl,_containerFortsHash]];
+
+_itemCount = if (isNull _vehicleListCtrl) then {lnbSize _listCtrl select 0} else {(lnbSize _listCtrl select 0) + (lnbSize _vehicleListCtrl select 0)};
 if (_itemCount == 0) exitWith {closeDialog grad_fortifications_DIALOG};
 
-_lastSelected = player getVariable ["grad_fortifications_ui_lastSelectedItem",0];
-if (_itemCount > _lastSelected) then {
-    _listCtrl lnbSetCurSelRow _lastSelected
+_lastSelectedContainer = player getVariable ["grad_fortifications_ui_lastSelectedContainer", player];
+_listToSelect = switch (true) do {
+    case (isNull _vehicleListCtrl): {0};
+    case ((lnbSize _listCtrl select 0) == 0): {1};
+    case (_lastSelectedContainer == player): {0};
+    case ((lnbSize _vehicleListCtrl select 0) == 0): {0};
+    default {1};
+};
+
+if (_listToSelect == 0) then {
+    _lastSel = player getVariable ["grad_fortifications_ui_lastSelectedItem",0];
+    _curSel = if (_lastSel > (lnbSize _listCtrl select 0)) then {-1} else {_lastSel};
+    _listCtrl lnbSetCurSelRow _curSel;
 } else {
-    _listCtrl lnbSetCurSelRow 0;
+    _lastSel = _container getVariable ["grad_fortifications_ui_lastSelectedItem",0];
+    _curSel = if (_lastSel > (lnbSize _vehicleListCtrl select 0)) then {-1} else {_lastSel};
+    _vehicleListCtrl lnbSetCurSelRow _curSel;
 };

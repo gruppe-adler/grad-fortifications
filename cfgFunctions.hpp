@@ -21,12 +21,14 @@ class GRAD_fortifications {
 
         class addFort {};
         class addFortRemote {};
+        class addVehicleInteractions {};
         class allowDemolition {};
         class canTake {};
         class doAnimation {};
         class getDisplayName {};
         class getModuleRoot {};
         class getObjectSize {};
+        class getVehicleInventorySize {};
         class initModule {postInit = 1;};
         class removeFort {};
         class setCollisionDebugMode {};
@@ -52,7 +54,6 @@ class GRAD_fortifications {
         class addUpdatePFH {};
         class cancelPlacement {};
         class demolish {};
-        class hideObjectClients {};
         class initFort {};
         class placeFortification {};
         class removeAllEHs {};
@@ -70,11 +71,22 @@ class GRAD_fortifications {
         class doDrop {};
         class doTake {};
         class loadFortDialog {};
+        class loadVehicleDialog {};
         class onSelChanged {};
         class openHint {};
         class rotateModel {};
+        class updateButtons {};
         class updateHint {};
         class updateItemList {};
+        class updateListTitles {};
         class updateModel {};
+    };
+
+    class vehicle {
+        file = MODULES_DIRECTORY\grad-fortifications\functions\vehicle;
+
+        class receiveFort {};
+        class requestStoreTake {};
+        class respondStoreTake {};
     };
 };

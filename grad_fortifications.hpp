@@ -5,3 +5,6 @@
 
 #include "dialog\menu\defines.hpp"
 #include "dialog\menu\dialog.hpp"
+
+#include "dialog\vehicle\defines.hpp"
+#include "dialog\vehicle\dialog.hpp"

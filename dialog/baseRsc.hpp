@@ -7,7 +7,7 @@ class grad_fortifications_RscBackground {
 	font = "PuristaMedium";
 	sizeEx = 0.04 * TEXT_SCALE;
 	shadow = 0;
-	colorBackground[] = {0, 0, 0, 0.6};
+	colorBackground[] = {0, 0, 0, 0.7};
 };
 
 class grad_fortifications_RscText {

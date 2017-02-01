@@ -82,7 +82,7 @@ class grad_fortifications {
             h = grad_fortifications_Item_H;
         };
 
-        class DroptButton: grad_fortifications_RscButton {
+        class DropButton: grad_fortifications_RscButton {
             idc = grad_fortifications_DROPBUTTON;
             text = "DROP";
             action = "_this call grad_fortifications_fnc_doDrop";

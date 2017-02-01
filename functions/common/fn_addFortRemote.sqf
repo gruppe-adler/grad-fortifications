@@ -16,4 +16,6 @@ if (_amount < 0) then {_size = -_size};
 if (_stock+_amount >= 0) then {
     _unit setVariable ["grad_fortifications_inventoryCargo",(_unit getVariable ["grad_fortifications_inventoryCargo",0]) + _size, true];
 };
-_unit setVariable ["grad_fortifications_myFortsHash",_myForts];
+
+_isPublic = !(_unit isKindOf "Man");
+_unit setVariable ["grad_fortifications_myFortsHash",_myForts,_isPublic];

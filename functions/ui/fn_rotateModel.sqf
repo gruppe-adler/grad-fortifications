@@ -3,7 +3,7 @@
 */
 
 params ["_modelCtrl"];
-_modelCtrl ctrlSetModelDirAndUp [[0,1,0.08],[0,0,1]];
+_modelCtrl ctrlSetModelDirAndUp [[0,1,0.06],[0,0,1]];
 
 [{
     params ["_modelCtrl", "_handle"];
@@ -16,4 +16,4 @@ _modelCtrl ctrlSetModelDirAndUp [[0,1,0.08],[0,0,1]];
 
     _modelCtrl ctrlSetModelDirAndUp [[_newX,_newY,_z],[0,0,1]];
     _modelCtrl ctrlCommit 0;
-} , 0.03, _modelCtrl] call CBA_fnc_addPerFrameHandler;
+} , 0.036, _modelCtrl] call CBA_fnc_addPerFrameHandler;

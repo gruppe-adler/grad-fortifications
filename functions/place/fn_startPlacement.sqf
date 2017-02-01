@@ -1,11 +1,12 @@
-params ["_type",["_mode","NORMAL"]];
+params ["_type",["_mode","NORMAL"],["_builder",player]];
 
 if (_type == "") exitWith {};
+if (player != _builder) exitWith {};
 
-_boundingBoxSize = [(missionConfigFile >> "CfgGradFortifications" >> _type >> "boundingBoxSize"),"number",1] call CBA_fnc_getConfigEntry;
-_canFloat = ([(missionConfigFile >> "CfgGradFortifications" >> _type >> "canFloat"),"number",0] call CBA_fnc_getConfigEntry) == 1;
-_canCollide = ([(missionConfigFile >> "CfgGradFortifications" >> _type >> "canCollide"),"number",0] call CBA_fnc_getConfigEntry) == 1;
-_surfaceNormal = ([(missionConfigFile >> "CfgGradFortifications" >> _type >> "surfaceNormal"),"number",1] call CBA_fnc_getConfigEntry) == 1;
+_boundingBoxSize = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "boundingBoxSize"),"number",1] call CBA_fnc_getConfigEntry;
+_canFloat = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "canFloat"),"number",0] call CBA_fnc_getConfigEntry) == 1;
+_canCollide = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "canCollide"),"number",0] call CBA_fnc_getConfigEntry) == 1;
+_surfaceNormal = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "surfaceNormal"),"number",1] call CBA_fnc_getConfigEntry) == 1;
 
 _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
 
@@ -14,7 +15,6 @@ _size = [_type] call grad_fortifications_fnc_getObjectSize;
 _fort allowDamage false;
 _fort disableCollisionWith player;
 
-[player,_fort,true] remoteExec ["grad_fortifications_fnc_hideObjectClients",0,false];
 if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {
     _fort hideObject true;
 };
