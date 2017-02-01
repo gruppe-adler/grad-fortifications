@@ -10,4 +10,10 @@ if (hasInterface) then {
     _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
     _action = ["grad_fortifications_mainBuildAction", "Fortifications", _moduleRoot + "\data\sandbags.paa", {[grad_fortifications_fnc_loadFortDialog,[_this select 0, _this select 1, "PLAYER"]] call CBA_fnc_execNextFrame}, {vehicle player == player && count ((player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]) select 1) > 0 && !(player getVariable ["grad_fortifications_isPlacing", false])}] call ace_interact_menu_fnc_createAction;
     ["CAManBase",1,["ACE_SelfActions","ACE_Equipment"],_action,true] call ace_interact_menu_fnc_addActionToClass;
+
+    _action = ["grad_fortifications_containerBuildAction", "Fortifications", _moduleRoot + "\data\sandbags.paa", {[grad_fortifications_fnc_loadFortDialog,[_this select 0, _this select 1, "CONTAINER"]] call CBA_fnc_execNextFrame}, {vehicle player == player && count (((_this select 0) getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]) select 1) > 0 && !(player getVariable ["grad_fortifications_isPlacing", false])}] call ace_interact_menu_fnc_createAction;
+    ["LandVehicle",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
+    ["Ship",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
+    ["Helicopter",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
+    ["Plane",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
 };
