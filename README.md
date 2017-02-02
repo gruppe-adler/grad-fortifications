@@ -8,10 +8,13 @@ Information on installation, configuration and usage here.
 **Virtual Fortification Inventory:**  
 ![](http://i.imgur.com/J3vvsR2.jpg)
 
+**Storing Fortifications in Vehicles:**
+![](http://i.imgur.com/Je0Xg1B.jpg)
+
 **Collision Detection:**  
 ![](http://i.imgur.com/6cKvbjC.jpg)
 
-**Dropping a Fortification:**  
+**Dropping Fortifications:**  
 ![](http://i.imgur.com/6FR7OWe.jpg)
 
 ***

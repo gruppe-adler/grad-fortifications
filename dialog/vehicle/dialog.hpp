@@ -29,11 +29,17 @@ class grad_fortifications_vehicle: grad_fortifications {
         class ItemListVehicleTitle: grad_fortifications_RscText {
             idc = grad_fortifications_vehicle_ITEMLISTTITLEVEHICLE;
             x = grad_fortifications_vehicle_Column1_X;
-            y = grad_fortifications_BG_Y + grad_fortifications_Padding_Y + grad_fortifications_ItemSpace_Y;
+            y = grad_fortifications_BG_Y + grad_fortifications_Padding_Y;
             w = grad_fortifications_Column_W;
             h = grad_fortifications_Item_H;
 
             sizeEx = 0.035 * TEXT_SCALE;
+            colorBackground[] = {
+                "(profilenamespace getvariable ['GUI_BCG_RGB_R', 0])",
+                "(profilenamespace getvariable ['GUI_BCG_RGB_G',0])",
+                "(profilenamespace getvariable ['GUI_BCG_RGB_B',0])",
+                0.7
+            };
         };
 
         class ItemListVehicle: ItemList {
@@ -47,11 +53,17 @@ class grad_fortifications_vehicle: grad_fortifications {
         class ItemListTitle: grad_fortifications_RscText {
             idc = grad_fortifications_vehicle_ITEMLISTTITLE;
             x = grad_fortifications_vehicle_Column2_X;
-            y = grad_fortifications_BG_Y + grad_fortifications_Padding_Y + grad_fortifications_ItemSpace_Y;
+            y = grad_fortifications_BG_Y + grad_fortifications_Padding_Y;
             w = grad_fortifications_Column_W;
             h = grad_fortifications_Item_H;
 
             sizeEx = 0.035 * TEXT_SCALE;
+            colorBackground[] = {
+                "(profilenamespace getvariable ['GUI_BCG_RGB_R', 0])",
+                "(profilenamespace getvariable ['GUI_BCG_RGB_G',0])",
+                "(profilenamespace getvariable ['GUI_BCG_RGB_B',0])",
+                0.7
+            };
         };
 
         class ItemList: ItemList {
