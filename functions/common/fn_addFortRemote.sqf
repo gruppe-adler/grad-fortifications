@@ -19,3 +19,6 @@ if (_stock+_amount >= 0) then {
 
 _isPublic = !(_unit isKindOf "Man");
 _unit setVariable ["grad_fortifications_myFortsHash",_myForts,_isPublic];
+if (_isPublic) then {
+    [_unit] remoteExec ["grad_fortifications_fnc_updateItemList",0,false];
+};

@@ -85,7 +85,6 @@ class GRAD_fortifications {
     class vehicle {
         file = MODULES_DIRECTORY\grad-fortifications\functions\vehicle;
 
-        class receiveFort {};
         class requestStoreTake {};
         class respondStoreTake {};
     };
