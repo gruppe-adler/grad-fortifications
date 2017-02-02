@@ -12,8 +12,6 @@ class grad_fortifications {
         };
 
         class TopBar: grad_fortifications_RscBackground {
-            moving = true;
-
             x = grad_fortifications_BG_X;
             y = grad_fortifications_TopBar_Y;
             w = grad_fortifications_BG_W;

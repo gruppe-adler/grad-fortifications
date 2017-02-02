@@ -3,7 +3,9 @@
 */
 
 params ["_modelCtrl"];
+
 _modelCtrl ctrlSetModelDirAndUp [[0,1,0.06],[0,0,1]];
+_modelCtrl ctrlEnable false;
 
 [{
     params ["_modelCtrl", "_handle"];
