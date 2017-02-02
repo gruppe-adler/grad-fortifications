@@ -9,10 +9,12 @@
 #include "..\..\dialog\menu\defines.hpp"
 #include "..\..\dialog\vehicle\defines.hpp"
 
-params [["_container",player]];
+params [["_container",player getVariable ["grad_fortifications_currentContainer", player]],"_containerFortsHash"];
+private ["_containerFortsHash"];
+
 disableSerialization;
 
-if (player getVariable ["grad_fortifications_currentContainer", player] != _container) exitWith {};
+if (player getVariable ["grad_fortifications_currentContainer", player] != _container && player !=_container) exitWith {};
 
 _dialog = findDisplay grad_fortifications_DIALOG;
 _listCtrl = _dialog displayCtrl grad_fortifications_ITEMLIST;
@@ -21,8 +23,11 @@ if (isNull _listCtrl) exitWith {};
 
 if !([player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]] call CBA_fnc_isHash) exitWith {ERROR("Player does not have myFortsHash.")};
 
-_myFortsHash = player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];;
-_containerFortsHash = _container getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];;
+_myFortsHash = player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];
+if (isNil "_containerFortsHash") then {
+    _containerFortsHash = _container getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];
+};
+
 
 {
     _x params ["_control","_hash"];
@@ -57,7 +62,7 @@ _listToSelect = switch (true) do {
 
 if (_listToSelect == 0) then {
     _lastSel = player getVariable ["grad_fortifications_ui_lastSelectedItem",0];
-    _curSel = if (_lastSel > (lnbSize _listCtrl select 0)) then {-1} else {_lastSel};
+    _curSel = if (_lastSel > (lnbSize _listCtrl select 0)) then {0} else {_lastSel};
     _listCtrl lnbSetCurSelRow _curSel;
 } else {
     _lastSel = _container getVariable ["grad_fortifications_ui_lastSelectedItem",0];
