@@ -1,24 +1,26 @@
-params ["_crate","_unit"];
+params ["_fort","_unit"];
 
-if (isNull _crate) exitWith {};
+if (isNull _fort) exitWith {};
 
-_type = typeOf _crate;
+_type = typeOf _fort;
 _size = [_type] call grad_fortifications_fnc_getObjectSize;
 
 _objDemolitionTimeAuto = 10*(_size);
 _objDemolitionTime = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "demolitionTime"),"number",_objDemolitionTimeAuto] call CBA_fnc_getConfigEntry;
 _demolitionTime = _objDemolitionTime * (player getVariable ["grad_fortifications_demolishTimeFactor",grad_fortifications_demolishTimeFactor]);
 
+systemChat str _demolitionTime;
+
 [_unit,(configFile >> "ACE_Repair" >> "Actions" >> "FullRepair")] call grad_fortifications_fnc_doAnimation;
 _onComplete = {
     _args = _this select 0;
-    _args params ["_crate","_unit"];
+    _args params ["_fort","_unit"];
     [_unit] call grad_fortifications_fnc_stopAnimation;
-    deleteVehicle _crate;
+    deleteVehicle _fort;
 };
 _onCancel = {
     _args = _this select 0;
-    _args params ["_crate","_unit"];
+    _args params ["_fort","_unit"];
     [_unit] call grad_fortifications_fnc_stopAnimation;
 };
-[_demolitionTime, [_crate,_unit], _onComplete, _onCancel, "Demolishing..."] call ace_common_fnc_progressBar;
+[_demolitionTime, [_fort,_unit], _onComplete, _onCancel, "Demolishing..."] call ace_common_fnc_progressBar;

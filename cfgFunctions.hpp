@@ -23,6 +23,7 @@ class GRAD_fortifications {
         class addFortRemote {};
         class addVehicleInteractions {};
         class allowDemolition {};
+        class allowPackUp {};
         class canTake {};
         class doAnimation {};
         class getDisplayName {};
@@ -34,6 +35,7 @@ class GRAD_fortifications {
         class setBuildTimeFactor {};
         class setCollisionDebugMode {};
         class setDemolishTimeFactor {};
+        class setPackUpTimeFactor {};
         class stopAnimation {};
     };
 
@@ -57,6 +59,7 @@ class GRAD_fortifications {
         class cancelPlacement {};
         class demolish {};
         class initFort {};
+        class packUp {};
         class placeFortification {};
         class removeAllEHs {};
         class setDirection {};

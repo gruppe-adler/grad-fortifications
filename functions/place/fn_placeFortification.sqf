@@ -6,7 +6,7 @@ _doPlace = {
     player setVariable ["grad_fortifications_isPlacing", false];
 
     _fort = player getVariable ["grad_fortifications_currentFort", objNull];
-    _spawnParams = [typeOf _fort, getDir _fort, vectorUp _fort, getPosASL _fort];
+    _spawnParams = [typeOf _fort, getDir _fort, vectorUp _fort, getPosASL _fort, player];
     deleteVehicle _fort;
     _spawnParams remoteExec ["grad_fortifications_fnc_spawnFortification",2,false];
 
