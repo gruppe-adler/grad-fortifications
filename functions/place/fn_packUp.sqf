@@ -9,7 +9,6 @@ _objPackUpTimeAuto = 15*(_size);
 _objPackUpTime = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "packUpTime"),"number",_objPackUpTimeAuto] call CBA_fnc_getConfigEntry;
 _packUpTime = _objPackUpTime * (player getVariable ["grad_fortifications_packUpTimeFactor",grad_fortifications_packUpTimeFactor]);
 
-systemChat str _packUpTime;
 
 [_unit,(configFile >> "ACE_Repair" >> "Actions" >> "FullRepair")] call grad_fortifications_fnc_doAnimation;
 _onComplete = {
