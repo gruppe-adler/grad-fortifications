@@ -31,7 +31,9 @@ class GRAD_fortifications {
         class getVehicleInventorySize {};
         class initModule {postInit = 1;};
         class removeFort {};
+        class setBuildTimeFactor {};
         class setCollisionDebugMode {};
+        class setDemolishTimeFactor {};
         class stopAnimation {};
     };
 

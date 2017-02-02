@@ -13,6 +13,7 @@ _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
 _fort = _type createVehicleLocal [0,0,0];
 _size = [_type] call grad_fortifications_fnc_getObjectSize;
 _fort allowDamage false;
+_fort enableSimulation false;
 _fort disableCollisionWith player;
 
 if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {

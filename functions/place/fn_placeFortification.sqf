@@ -1,10 +1,5 @@
-if (player getVariable ["grad_fortifications_isColliding",true] || !(player getVariable ["grad_fortifications_isOnGround",false])) then {
-
-    player say2d "AddItemFailed";
-
-} else {
-    [] call grad_fortifications_fnc_removeAllEHs;
-    call ace_interaction_fnc_hideMouseHint;
+_doPlace = {
+    params ["_anim"];
 
     player forceWalk false;
     [false] call grad_fortifications_fnc_openHint;
@@ -15,8 +10,32 @@ if (player getVariable ["grad_fortifications_isColliding",true] || !(player getV
     deleteVehicle _fort;
     _spawnParams remoteExec ["grad_fortifications_fnc_spawnFortification",2,false];
 
-
     if (player getVariable ["grad_fortifications_currentMode", "NORMAL"] == "NORMAL") then {
         [player,player getVariable ["grad_fortifications_currentType",""],1] call grad_fortifications_fnc_removeFort;
+    };
+    if (_anim) then {
+        [player] call grad_fortifications_fnc_stopAnimation;
+    };
+};
+
+
+if (player getVariable ["grad_fortifications_isColliding",true] || !(player getVariable ["grad_fortifications_isOnGround",false])) then {
+    player say2d "AddItemFailed";
+
+} else {
+    [] call grad_fortifications_fnc_removeAllEHs;
+    [] call ace_interaction_fnc_hideMouseHint;
+
+    _currentType = typeOf (player getVariable ["grad_fortifications_currentFort", objNull]);
+
+    _objBuildTimeAuto = 3*([_currentType] call grad_fortifications_fnc_getObjectSize);
+    _objBuildTime = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _currentType >> "buildTime"),"number",_objBuildTimeAuto] call CBA_fnc_getConfigEntry;
+    _buildTime = _objBuildTime * (player getVariable ["grad_fortifications_buildTimeFactor",grad_fortifications_buildTimeFactor]);
+
+    if (_buildTime < 1) then {
+        [false] call _doPlace;
+    } else {
+        [player,(configFile >> "ACE_Repair" >> "Actions" >> "FullRepair")] call grad_fortifications_fnc_doAnimation;
+        [_buildTime, true, _doPlace, {[player] call grad_fortifications_fnc_stopAnimation; [] call grad_fortifications_fnc_cancelPlacement}, "Placing..."] call ace_common_fnc_progressBar;
     };
 };

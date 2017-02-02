@@ -5,8 +5,9 @@ if (isNull _crate) exitWith {};
 _type = typeOf _crate;
 _size = [_type] call grad_fortifications_fnc_getObjectSize;
 
-_demolitionTime = 10 * _size * (missionNamespace getVariable ["grad_fortifications_demolishTimeFactor",1]);
-_demolitionTime = [(missionConfigFile >> "CfgGradFortifications" >> _type >> "demolitionTime"),"number",_demolitionTime] call CBA_fnc_getConfigEntry;
+_objDemolitionTimeAuto = 10*(_size);
+_objDemolitionTime = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "demolitionTime"),"number",_objDemolitionTimeAuto] call CBA_fnc_getConfigEntry;
+_demolitionTime = _objDemolitionTime * (player getVariable ["grad_fortifications_demolishTimeFactor",grad_fortifications_demolishTimeFactor]);
 
 [_unit,(configFile >> "ACE_Repair" >> "Actions" >> "FullRepair")] call grad_fortifications_fnc_doAnimation;
 _onComplete = {
