@@ -4,6 +4,8 @@ if (!hasInterface) exitWith {};
 if (isNull _fort) exitWith {};
 
 _type = typeOf _fort;
+if ([_type] call grad_fortifications_fnc_isVehicle) exitWith {};
+
 switch (grad_fortifications_fortificationOwnerType) do {
     case ("BUILDER"): {
         _fort setVariable ["grad_fortifications_fortOwner",_owner,false];

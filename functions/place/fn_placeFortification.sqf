@@ -32,6 +32,8 @@ if (player getVariable ["grad_fortifications_isColliding",true] || !(player getV
     _objBuildTime = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _currentType >> "buildTime"),"number",_objBuildTimeAuto] call CBA_fnc_getConfigEntry;
     _buildTime = _objBuildTime * (player getVariable ["grad_fortifications_buildTimeFactor",grad_fortifications_buildTimeFactor]);
 
+    if ([_currentType] call grad_fortifications_fnc_isVehicle) then {_buildTime = 0};
+
     if (_buildTime < 1) then {
         [false] call _doPlace;
     } else {
