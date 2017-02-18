@@ -45,6 +45,12 @@ switch (_mode) do {
         _l5Pic ctrlSetText (_moduleRoot + "\data\warning.paa");
     };
 
+    case ("ONROAD"): {
+        _l5BG ctrlSetBackgroundColor [0.65,0.65,0,0.65];
+        _l5Txt ctrlSetText "CAN'T PLACE ON ROAD!";
+        _l5Pic ctrlSetText (_moduleRoot + "\data\warning.paa");
+    };
+
     case ("CANPLACE"): {
         _l5BG ctrlSetBackgroundColor [0,0.7,0,0.65];
         _l5Txt ctrlSetText "CAN PLACE";

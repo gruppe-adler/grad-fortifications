@@ -19,7 +19,7 @@ _doPlace = {
 };
 
 
-if (player getVariable ["grad_fortifications_isColliding",true] || !(player getVariable ["grad_fortifications_isOnGround",false])) then {
+if (player getVariable ["grad_fortifications_isColliding",true] || !(player getVariable ["grad_fortifications_isOnGround",false]) || (player getVariable ["grad_fortifications_isOnRoad",false])) then {
     player say2d "AddItemFailed";
 
 } else {

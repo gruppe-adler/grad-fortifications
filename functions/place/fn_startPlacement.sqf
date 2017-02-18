@@ -6,6 +6,7 @@ if (player != _builder) exitWith {};
 _boundingBoxSize = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "boundingBoxSize"),"number",1] call CBA_fnc_getConfigEntry;
 _canFloat = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "canFloat"),"number",0] call CBA_fnc_getConfigEntry) == 1;
 _canCollide = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "canCollide"),"number",0] call CBA_fnc_getConfigEntry) == 1;
+_canPlaceOnRoad = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "canPlaceOnRoad"),"number",1] call CBA_fnc_getConfigEntry) == 1;
 _surfaceNormal = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "surfaceNormal"),"number",1] call CBA_fnc_getConfigEntry) == 1;
 
 _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
@@ -39,7 +40,7 @@ player forceWalk true;
 _boundingLines = [_fort,_boundingBoxSize] call grad_fortifications_fnc_getBoundingLines;
 _visualLines = [_fort] call grad_fortifications_fnc_getVisualLines;
 _groundLines = [_fort] call grad_fortifications_fnc_getGroundLines;
-[_visualLines,_boundingLines,_groundLines,_fort,_canFloat,_canCollide,_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_checkCollisionPFH;
+[_visualLines,_boundingLines,_groundLines,_fort,_canFloat,_canCollide,_canPlaceOnRoad,_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_checkCollisionPFH;
 
 
 [player,_fort,_surfaceNormal] call grad_fortifications_fnc_addUpdatePFH;

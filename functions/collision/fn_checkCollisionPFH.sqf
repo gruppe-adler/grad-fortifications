@@ -1,6 +1,6 @@
 grad_fortifications_checkCollisionPFH = [{
     params ["_args", "_handle"];
-    _args params ["_visualLines","_boundingLines","_groundLines","_fort","_canFloat","_canCollide","_moduleRoot","_surfaceNormal"];
+    _args params ["_visualLines","_boundingLines","_groundLines","_fort","_canFloat","_canCollide","_canPlaceOnRoad","_moduleRoot","_surfaceNormal"];
 
     if (isNull _fort) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
 
@@ -9,11 +9,12 @@ grad_fortifications_checkCollisionPFH = [{
     _groundLinesWorld = [_groundLines,_fort] call grad_fortifications_fnc_linesToWorld;
 
     _isOnGround = if (_canFloat) then {true} else {[_groundLinesWorld,_fort] call grad_fortifications_fnc_isOnGround};
-
+    _isOnRoad = if (_canPlaceOnRoad) then {false} else {isOnRoad _fort};
 
     //check bounding box
     player setVariable ["grad_fortifications_isColliding",false];
     player setVariable ["grad_fortifications_isOnGround",_isOnGround];
+    player setVariable ["grad_fortifications_isOnRoad",_isOnRoad];
     {
         _isColliding = if (_canCollide) then {false} else {[_x,_fort] call grad_fortifications_fnc_isColliding};
 
@@ -23,7 +24,7 @@ grad_fortifications_checkCollisionPFH = [{
             player setVariable ["grad_fortifications_isColliding",true];
         };
 
-        if (!_isOnGround) then {
+        if (!_isOnGround || _isOnRoad) then {
             _color = [1,1,0,1];
         };
 
@@ -49,6 +50,9 @@ grad_fortifications_checkCollisionPFH = [{
     switch (true) do {
         case (!_isOnGround): {
             ["FLOATING",_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_updateHint;
+        };
+        case (_isOnRoad): {
+            ["ONROAD",_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_updateHint;
         };
         case (player getVariable ["grad_fortifications_isColliding",true]): {
             ["COLLIDING",_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_updateHint;
