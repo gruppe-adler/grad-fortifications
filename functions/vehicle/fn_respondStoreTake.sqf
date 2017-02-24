@@ -10,7 +10,7 @@ switch (_mode) do {
     case ("BUILD"): {
         if (_containerStock > 0) then {
             [_container,_type] call grad_fortifications_fnc_removeFort;
-            [_type,"DROPPED",_caller] remoteExec ["grad_fortifications_fnc_startPlacement",0,false];
+            [_type,"DROPPED"] remoteExec ["grad_fortifications_fnc_startPlacement",_caller,false];
         };
     };
     case ("STORE"): {

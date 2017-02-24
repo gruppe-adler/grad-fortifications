@@ -46,7 +46,8 @@ if (isNil "_containerFortsHash") then {
     };
     [_hash, _updateList] call CBA_fnc_hashEachPair;
 
-} forEach [[_listCtrl,_myFortsHash],[_vehicleListCtrl,_containerFortsHash]];
+    false
+} count [[_listCtrl,_myFortsHash],[_vehicleListCtrl,_containerFortsHash]];
 
 _itemCount = if (isNull _vehicleListCtrl) then {lnbSize _listCtrl select 0} else {(lnbSize _listCtrl select 0) + (lnbSize _vehicleListCtrl select 0)};
 if (_itemCount == 0) exitWith {closeDialog grad_fortifications_DIALOG};

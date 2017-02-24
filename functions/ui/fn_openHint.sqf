@@ -47,7 +47,8 @@ if (_open) then {
             _curPos = ctrlPosition _x;
             _x ctrlSetPosition [(_curPos select 0) - (0.28 * _xScale), grad_fortifications_hint_Y+_lineNumber*(grad_fortifications_spacing_Y+grad_fortifications_hint_H)];
             _x ctrlCommit 0.5;
-        } forEach _x;
+            false
+        } count _x;
     } forEach [[_l1BG,_l1Txt,_l1Pic],[_l2BG,_l2Txt,_l2Pic],[_l3BG,_l3Txt,_l3Pic],[_l4BG,_l4Txt,_l4Pic],[_l5BG,_l5Txt,_l5Pic]];
 
 } else {
@@ -57,7 +58,8 @@ if (_open) then {
             _curPos = ctrlPosition _x;
             _x ctrlSetPosition [(_curPos select 0) + (0.28 * _xScale), grad_fortifications_hint_Y+_lineNumber*(grad_fortifications_spacing_Y+grad_fortifications_hint_H)];
             _x ctrlCommit 0.5;
-        } forEach _x;
+            false
+        } count _x;
     } forEach [[_l1BG,_l1Txt,_l1Pic],[_l2BG,_l2Txt,_l2Pic],[_l3BG,_l3Txt,_l3Pic],[_l4BG,_l4Txt,_l4Pic],[_l5BG,_l5Txt,_l5Pic]];
 
     [{

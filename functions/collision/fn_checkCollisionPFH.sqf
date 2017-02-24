@@ -42,7 +42,8 @@ grad_fortifications_checkCollisionPFH = [{
         _color = if (!_isOnGround) then {[1,1,0,1]} else {[0,1,0,1]};
         {
             drawLine3D [_x select 0,_x select 1,_color];
-        } forEach _groundLinesWorld;
+            false
+        } count _groundLinesWorld;
     };
 
 

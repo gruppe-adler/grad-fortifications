@@ -18,7 +18,3 @@ if (_weaponSelect != "") then {
 } else {
     _caller action ["SwitchWeapon", _caller, _caller, 99];
 };
-
-{
-    (_x select 0) addItem (_x select 1);
-} forEach _usersOfItems;
