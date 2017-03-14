@@ -10,6 +10,7 @@ grad_fortifications_checkCollisionPFH = [{
 
     _isOnGround = if (_canFloat) then {true} else {[_groundLinesWorld,_fort] call grad_fortifications_fnc_isOnGround};
     _isOnRoad = if (_canPlaceOnRoad) then {false} else {isOnRoad _fort};
+    _customCondition = call compile ([missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> typeOf _fort >> "condition","text","true"] call CBA_fnc_getConfigEntry);
 
     //check bounding box
     player setVariable ["grad_fortifications_isColliding",false];
@@ -24,7 +25,7 @@ grad_fortifications_checkCollisionPFH = [{
             player setVariable ["grad_fortifications_isColliding",true];
         };
 
-        if (!_isOnGround || _isOnRoad) then {
+        if (!_isOnGround || _isOnRoad || !_customCondition) then {
             _color = [1,1,0,1];
         };
 
@@ -49,6 +50,9 @@ grad_fortifications_checkCollisionPFH = [{
 
     //update hint
     switch (true) do {
+        case (!_customCondition): {
+            ["CUSTOM",_moduleRoot,_surfaceNormal,typeOf _fort] call grad_fortifications_fnc_updateHint;
+        };
         case (!_isOnGround): {
             ["FLOATING",_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_updateHint;
         };

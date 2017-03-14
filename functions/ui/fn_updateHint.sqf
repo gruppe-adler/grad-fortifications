@@ -3,7 +3,7 @@
 
 if (!hasInterface) exitWith {};
 
-params ["_mode","_moduleRoot","_surfaceNormal"];
+params ["_mode","_moduleRoot","_surfaceNormal",["_fortType",""]];
 
 disableSerialization;
 _hint   = uiNamespace getVariable "grad_fortifications_hint";
@@ -48,6 +48,13 @@ switch (_mode) do {
     case ("ONROAD"): {
         _l5BG ctrlSetBackgroundColor [0.65,0.65,0,0.65];
         _l5Txt ctrlSetText "CAN'T PLACE ON ROAD!";
+        _l5Pic ctrlSetText (_moduleRoot + "\data\warning.paa");
+    };
+
+    case ("CUSTOM"): {
+        _l5BG ctrlSetBackgroundColor [0.65,0.65,0,0.65];
+        _conditionHint = [missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _fortType >> "conditionHint","text","CAN'T PLACE!"] call CBA_fnc_getConfigEntry;
+        _l5Txt ctrlSetText (toUpper _conditionHint);
         _l5Pic ctrlSetText (_moduleRoot + "\data\warning.paa");
     };
 
