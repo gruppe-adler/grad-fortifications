@@ -16,6 +16,7 @@ grad_fortifications_checkCollisionPFH = [{
     player setVariable ["grad_fortifications_isColliding",false];
     player setVariable ["grad_fortifications_isOnGround",_isOnGround];
     player setVariable ["grad_fortifications_isOnRoad",_isOnRoad];
+    player setVariable ["grad_fortifications_isCustomCondition",_customCondition];
     {
         _isColliding = if (_canCollide) then {false} else {[_x,_fort] call grad_fortifications_fnc_isColliding};
 
