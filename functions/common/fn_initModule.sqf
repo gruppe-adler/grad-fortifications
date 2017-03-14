@@ -9,9 +9,9 @@ grad_fortifications_vehicleInventorySizeFactor = [(missionConfigFile >> "CfgGrad
 grad_fortifications_fortificationOwnerType = [(missionConfigFile >> "CfgGradFortifications" >> "fortificationOwner"),"text","BUILDER"] call CBA_fnc_getConfigEntry;
 
 if (hasInterface) then {
-    player setVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];
-    player setVariable ["grad_fortifications_inventorySize",grad_fortifications_playerInventorySize];
-    player setVariable ["grad_fortifications_inventoryCargo",0, true];
+    if (isNil {player getVariable "grad_fortifications_myFortsHash"}) then {player setVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]};
+    if (isNil {player getVariable "grad_fortifications_inventorySize"}) then {player setVariable ["grad_fortifications_inventorySize",grad_fortifications_playerInventorySize]};
+    if (isNil {player getVariable "grad_fortifications_inventoryCargo"}) then {player setVariable ["grad_fortifications_inventoryCargo",0, true]};
 
     _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
     [] call grad_fortifications_fnc_addVehicleInteractions;
