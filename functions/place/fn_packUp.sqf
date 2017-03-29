@@ -18,7 +18,7 @@ _onComplete = {
 
     _pos = getPos _fort;
     deleteVehicle _fort;
-    [_type,"DROPPED",_pos] call grad_fortifications_fnc_dropFort;
+    [_unit,_type] call grad_fortifications_fnc_addFort;
 };
 _onCancel = {
     _args = _this select 0;
