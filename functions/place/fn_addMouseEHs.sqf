@@ -32,13 +32,12 @@ grad_fortifications_mousebuttonEH = (findDisplay 46) displayAddEventHandler ["Mo
 
     if !(_button in [0,1]) exitWith {};
 
-    switch (true) do {
-        case (_button == 0): {
-            [] call grad_fortifications_fnc_placeFortification;
-        };
-        case (_button == 1): {
-            [] call grad_fortifications_fnc_cancelPlacement;
-        };
+    if (_button == 0) then {
+        [] call grad_fortifications_fnc_placeFortification;
+    };
+
+    if (_button == 1) then {
+        [] call grad_fortifications_fnc_cancelPlacement;
     };
 
     false

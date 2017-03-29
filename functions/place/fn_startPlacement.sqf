@@ -3,19 +3,22 @@ params ["_type",["_mode","NORMAL"],["_builder",player]];
 if (_type == "") exitWith {};
 if (player != _builder) exitWith {};
 
-_boundingBoxSize = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "boundingBoxSize"),"number",1] call CBA_fnc_getConfigEntry;
-_canFloat = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "canFloat"),"number",0] call CBA_fnc_getConfigEntry) == 1;
-_canCollide = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "canCollide"),"number",0] call CBA_fnc_getConfigEntry) == 1;
-_canPlaceOnRoad = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "canPlaceOnRoad"),"number",1] call CBA_fnc_getConfigEntry) == 1;
-_surfaceNormal = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "surfaceNormal"),"number",1] call CBA_fnc_getConfigEntry) == 1;
+private _boundingBoxSize = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "boundingBoxSize"),"number",1] call CBA_fnc_getConfigEntry;
+private _canFloat = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "canFloat"),"number",0] call CBA_fnc_getConfigEntry) == 1;
+private _canCollide = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "canCollide"),"number",0] call CBA_fnc_getConfigEntry) == 1;
+private _canPlaceOnRoad = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "canPlaceOnRoad"),"number",1] call CBA_fnc_getConfigEntry) == 1;
+private _surfaceNormal = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "surfaceNormal"),"number",1] call CBA_fnc_getConfigEntry) == 1;
+private _onPlaceStart = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _type >> "onPlaceStart"),"text",([(missionConfigFile >> "CfgGradFortifications" >> "onPlaceStart"),"text",""] call CBA_fnc_getConfigEntry)] call CBA_fnc_getConfigEntry;
 
-_moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
+private _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
 
-_fort = _type createVehicleLocal [0,0,0];
-_size = [_type] call grad_fortifications_fnc_getObjectSize;
+private _fort = _type createVehicleLocal [0,0,0];
+private _size = [_type] call grad_fortifications_fnc_getObjectSize;
 _fort allowDamage false;
 _fort enableSimulation false;
 _fort disableCollisionWith player;
+
+[player,_type,_fort] call compile _onPlaceStart;
 
 if (missionNamespace getVariable ["grad_fortifications_collisionDebugMode",false]) then {
     _fort hideObject true;
@@ -37,9 +40,9 @@ player forceWalk true;
 
 [true,_surfaceNormal] call grad_fortifications_fnc_openHint;
 
-_boundingLines = [_fort,_boundingBoxSize] call grad_fortifications_fnc_getBoundingLines;
-_visualLines = [_fort] call grad_fortifications_fnc_getVisualLines;
-_groundLines = [_fort] call grad_fortifications_fnc_getGroundLines;
+private _boundingLines = [_fort,_boundingBoxSize] call grad_fortifications_fnc_getBoundingLines;
+private _visualLines = [_fort] call grad_fortifications_fnc_getVisualLines;
+private _groundLines = [_fort] call grad_fortifications_fnc_getGroundLines;
 [_visualLines,_boundingLines,_groundLines,_fort,_canFloat,_canCollide,_canPlaceOnRoad,_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_checkCollisionPFH;
 
 

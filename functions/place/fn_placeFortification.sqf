@@ -34,6 +34,9 @@ if (player getVariable ["grad_fortifications_isColliding",true] || !(player getV
 
     if ([_currentType] call grad_fortifications_fnc_isVehicle) then {_buildTime = 0};
 
+    _onBuildStart = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications"  >> _currentType >> "onBuildStart"),"text",([(missionConfigFile >> "CfgGradFortifications" >> "onBuildStart"),"text",""] call CBA_fnc_getConfigEntry)] call CBA_fnc_getConfigEntry;
+    [player,_currentType,player getVariable ["grad_fortifications_currentFort", objNull]] call compile _onBuildStart;
+
     if (_buildTime < 1) then {
         [false] call _doPlace;
     } else {
