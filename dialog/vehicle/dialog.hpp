@@ -83,6 +83,7 @@ class grad_fortifications_vehicle: grad_fortifications {
             w = grad_fortifications_Item_W;
             h = grad_fortifications_Item_H;
 
+            colorBackground[] = {0,0.8,0,0.8};
             text = "<";
             action = "['STORE'] call grad_fortifications_fnc_requestStoreTake";
         };
@@ -96,6 +97,7 @@ class grad_fortifications_vehicle: grad_fortifications {
             w = grad_fortifications_Item_W;
             h = grad_fortifications_Item_H;
 
+            colorBackground[] = {0,0.8,0,0.8};
             text = ">";
             action = "['TAKE'] call grad_fortifications_fnc_requestStoreTake";
         };
