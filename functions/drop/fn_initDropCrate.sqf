@@ -6,8 +6,8 @@ if (isNull _crate) exitWith {};
 _crate setVariable ["grad_fortifications_dropCrate_type", _type];
 
 if (isClass (configfile >> "CfgPatches" >> "CUP_Core")) then {
-    [_crate,true] call ace_dragging_fnc_setDraggable;
-    [_crate,true] call ace_dragging_fnc_setCarryable;
+    [_crate,true,[0,2,0]] call ace_dragging_fnc_setDraggable;
+    [_crate,true,[0,1.5,0.8]] call ace_dragging_fnc_setCarryable;
     [_crate,true] call ace_cargo_fnc_makeLoadable;
 };
 
