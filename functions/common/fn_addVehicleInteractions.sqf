@@ -1,10 +1,13 @@
 _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
 
 _condition = {
-    !(locked (_this select 0) in [2,3]) &&
+    params [["_vehicle",objNull]];
+    !(locked _vehicle in [2,3]) &&
     vehicle player == player &&
     !(player getVariable ["grad_fortifications_isPlacing", false]) &&
     {([(missionConfigFile >> "CfgGradFortifications" >> "Vehicles" >> typeOf (_this select 0) >> "isStorage"),"number",1] call CBA_fnc_getConfigEntry) == 1} &&
+    alive _vehicle &&
+    !(_vehicle getVariable ["ace_cookoff_isCookingOff",false]) &&
     {
         (count (((_this select 0) getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]) select 1) > 0) ||
         (count (((_this select 1) getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]) select 1) > 0)
