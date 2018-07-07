@@ -38,6 +38,7 @@ class GRAD_fortifications {
         class setDemolishTimeFactor {};
         class setPackUpTimeFactor {};
         class stopAnimation {};
+        class storageAction {};
     };
 
     class drop {
