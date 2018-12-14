@@ -16,5 +16,5 @@ _weaponSelect = (_caller getVariable ["uo_selectedWeaponOnAnimation", ""]);
 if (_weaponSelect != "") then {
     _caller selectWeapon _weaponSelect;
 } else {
-    _caller action ["SwitchWeapon", _caller, _caller, 99];
+    [_caller] call ACE_weaponSelect_fnc_putWeaponAway;
 };
