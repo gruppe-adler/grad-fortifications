@@ -1,13 +1,13 @@
 private _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
 
 private _condition = {
-    params [["_vehicle",objNull]];
+    params [["_vehicle",objNull],["_unit",objNull]];
 
     alive _vehicle &&
     {!(locked _vehicle in [2,3])} &&
-    {vehicle player == player} &&
+    {isNull (objectParent _unit)} &&
     {!(_vehicle getVariable ["ace_cookoff_isCookingOff",false])} &&
-    {!(player getVariable ["grad_fortifications_isPlacing", false])} &&
+    {!(_unit getVariable ["grad_fortifications_isPlacing", false])} &&
     {
         [
             missionConfigFile >> "CfgGradFortifications" >> "Vehicles" >> typeOf _vehicle,

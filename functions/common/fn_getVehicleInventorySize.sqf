@@ -1,6 +1,7 @@
 params ["_unit"];
 
 
+if (_unit isKindOf "CAManBase") exitWith {grad_fortifications_playerInventorySize};
 
 private _size = [missionConfigFile >> "CfgGradFortifications" >> "Vehicles" >> typeOf _unit,"vehicleInventorySize",-1] call BIS_fnc_returnConfigEntry;
 

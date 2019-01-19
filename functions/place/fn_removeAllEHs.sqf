@@ -6,4 +6,4 @@
 [grad_fortifications_updatePFH] call CBA_fnc_removePerFrameHandler;
 [grad_fortifications_checkCollisionPFH] call CBA_fnc_removePerFrameHandler;
 
-player removeAction grad_fortifications_fireOverride;
+ACE_player removeAction grad_fortifications_fireOverride;

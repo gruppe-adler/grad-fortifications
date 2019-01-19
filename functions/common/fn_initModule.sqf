@@ -9,12 +9,17 @@ grad_fortifications_vehicleInventorySizeFactor = ([(missionConfigFile >> "CfgGra
 grad_fortifications_fortificationOwnerType = [(missionConfigFile >> "CfgGradFortifications" >> "fortificationOwner"),"text","BUILDER"] call CBA_fnc_getConfigEntry;
 
 if (hasInterface) then {
-    if (isNil {player getVariable "grad_fortifications_myFortsHash"}) then {player setVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]};
-    if (isNil {player getVariable "grad_fortifications_inventorySize"}) then {player setVariable ["grad_fortifications_inventorySize",grad_fortifications_playerInventorySize]};
-    if (isNil {player getVariable "grad_fortifications_inventoryCargo"}) then {player setVariable ["grad_fortifications_inventoryCargo",0, true]};
 
-    _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
     [] call grad_fortifications_fnc_addVehicleInteractions;
-    _action = ["grad_fortifications_mainBuildAction", "Fortifications", _moduleRoot + "\data\sandbags.paa", {[grad_fortifications_fnc_loadFortDialog,[_this select 0, _this select 1]] call CBA_fnc_execNextFrame}, {vehicle player == player && count ((player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]) select 1) > 0 && !(player getVariable ["grad_fortifications_isPlacing", false])}] call ace_interact_menu_fnc_createAction;
+    private _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
+    private _action = ["grad_fortifications_mainBuildAction", "Fortifications", _moduleRoot + "\data\sandbags.paa", {
+        [grad_fortifications_fnc_loadFortDialog,[_this select 0, _this select 1]] call CBA_fnc_execNextFrame
+    },{
+        params ["","_unit"];
+        isNull (objectParent _unit) &&
+        {count ((_unit getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]) select 1) > 0} &&
+        {!(_unit getVariable ["grad_fortifications_isPlacing", false])}
+    }] call ace_interact_menu_fnc_createAction;
+
     ["CAManBase",1,["ACE_SelfActions","ACE_Equipment"],_action,true] call ace_interact_menu_fnc_addActionToClass;
 };

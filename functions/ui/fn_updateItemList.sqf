@@ -9,21 +9,23 @@
 #include "..\..\dialog\menu\defines.hpp"
 #include "..\..\dialog\vehicle\defines.hpp"
 
-params [["_container",player getVariable ["grad_fortifications_currentContainer", player]],"_containerFortsHash"];
+private _builder = ACE_player;
+
+params [["_container",_builder getVariable ["grad_fortifications_currentContainer", _builder]],"_containerFortsHash"];
 private ["_containerFortsHash"];
 
 disableSerialization;
 
-if (player getVariable ["grad_fortifications_currentContainer", player] != _container && player !=_container) exitWith {};
+if (_builder getVariable ["grad_fortifications_currentContainer", _builder] != _container && _builder !=_container) exitWith {};
 
-_dialog = findDisplay grad_fortifications_DIALOG;
-_listCtrl = _dialog displayCtrl grad_fortifications_ITEMLIST;
-_vehicleListCtrl = _dialog displayCtrl grad_fortifications_vehicle_ITEMLIST;
+private _dialog = findDisplay grad_fortifications_DIALOG;
+private _listCtrl = _dialog displayCtrl grad_fortifications_ITEMLIST;
+private _vehicleListCtrl = _dialog displayCtrl grad_fortifications_vehicle_ITEMLIST;
 if (isNull _listCtrl) exitWith {};
 
-if !([player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]] call CBA_fnc_isHash) exitWith {ERROR("Player does not have myFortsHash.")};
+if !([_builder getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate]] call CBA_fnc_isHash) exitWith {ERROR("Unit does not have myFortsHash.")};
 
-_myFortsHash = player getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];
+_myFortsHash = _builder getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];
 if (isNil "_containerFortsHash") then {
     _containerFortsHash = _container getVariable ["grad_fortifications_myFortsHash",[[],0] call CBA_fnc_hashCreate];
 };
@@ -52,17 +54,17 @@ if (isNil "_containerFortsHash") then {
 _itemCount = if (isNull _vehicleListCtrl) then {lnbSize _listCtrl select 0} else {(lnbSize _listCtrl select 0) + (lnbSize _vehicleListCtrl select 0)};
 if (_itemCount == 0) exitWith {closeDialog grad_fortifications_DIALOG};
 
-_lastSelectedContainer = player getVariable ["grad_fortifications_ui_lastSelectedContainer", player];
+_lastSelectedContainer = _builder getVariable ["grad_fortifications_ui_lastSelectedContainer", _builder];
 _listToSelect = switch (true) do {
     case (isNull _vehicleListCtrl): {0};
     case ((lnbSize _listCtrl select 0) == 0): {1};
-    case (_lastSelectedContainer == player): {0};
+    case (_lastSelectedContainer == _builder): {0};
     case ((lnbSize _vehicleListCtrl select 0) == 0): {0};
     default {1};
 };
 
 if (_listToSelect == 0) then {
-    _lastSel = player getVariable ["grad_fortifications_ui_lastSelectedItem",0];
+    _lastSel = _builder getVariable ["grad_fortifications_ui_lastSelectedItem",0];
     _curSel = if (_lastSel > (lnbSize _listCtrl select 0)) then {0} else {_lastSel};
     _listCtrl lnbSetCurSelRow _curSel;
 } else {

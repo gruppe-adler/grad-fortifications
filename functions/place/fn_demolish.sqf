@@ -8,7 +8,7 @@ _size = [_type] call grad_fortifications_fnc_getObjectSize;
 _objDemolitionTimeAuto = 10*(_size);
 _objDemolitionTime = [(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "demolitionTime"),"number",_objDemolitionTimeAuto] call CBA_fnc_getConfigEntry;
 _ownerFactor = if ([_fort,_unit] call grad_fortifications_fnc_isOwner) then {0.5} else {1};
-_demolitionTime = _ownerFactor * _objDemolitionTime * (player getVariable ["grad_fortifications_demolishTimeFactor",grad_fortifications_demolishTimeFactor]);
+_demolitionTime = _ownerFactor * _objDemolitionTime * (_unit getVariable ["grad_fortifications_demolishTimeFactor",grad_fortifications_demolishTimeFactor]);
 
 [_unit,(configFile >> "ACE_Repair" >> "Actions" >> "FullRepair")] call grad_fortifications_fnc_doAnimation;
 _onComplete = {

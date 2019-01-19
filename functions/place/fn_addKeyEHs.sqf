@@ -1,15 +1,17 @@
 grad_fortifications_keydownEH = (findDisplay 46) displayAddEventHandler ["KeyDown", {
     params ["_control","_DIK"];
 
+    private _builder = ACE_player;
+
     switch (true) do {
         case (_DIK in [42,54]): {
-            player setVariable ["grad_fortifications_shiftDown",true];
+            _builder setVariable ["grad_fortifications_shiftDown",true];
         };
         case (_DIK in [29,157]): {
-            player setVariable ["grad_fortifications_ctrlDown",true];
+            _builder setVariable ["grad_fortifications_ctrlDown",true];
         };
         case (_DIK in [56,184]): {
-            player setVariable ["grad_fortifications_altDown",true];
+            _builder setVariable ["grad_fortifications_altDown",true];
         };
     };
 
@@ -24,21 +26,24 @@ grad_fortifications_keydownEH = (findDisplay 46) displayAddEventHandler ["KeyDow
 
 grad_fortifications_keyupEH = (findDisplay 46) displayAddEventHandler ["KeyUp", {
     params ["_control","_DIK"];
+
+    private _builder = ACE_player;
+    
     switch (true) do {
         case (_DIK in [42,54]): {
-            player setVariable ["grad_fortifications_shiftDown",false];
+            _builder setVariable ["grad_fortifications_shiftDown",false];
         };
         case (_DIK in [29,157]): {
-            player setVariable ["grad_fortifications_ctrlDown",false];
+            _builder setVariable ["grad_fortifications_ctrlDown",false];
         };
         case (_DIK in [56,184]): {
-            player setVariable ["grad_fortifications_altDown",false];
+            _builder setVariable ["grad_fortifications_altDown",false];
         };
         case (_DIK == 15): {
-            if (player getVariable ["grad_fortifications_surfaceNormal",true]) then {
-                player setVariable ["grad_fortifications_surfaceNormal",false];
+            if (_builder getVariable ["grad_fortifications_surfaceNormal",true]) then {
+                _builder setVariable ["grad_fortifications_surfaceNormal",false];
             } else {
-                player setVariable ["grad_fortifications_surfaceNormal",true];
+                _builder setVariable ["grad_fortifications_surfaceNormal",true];
             };
         };
     };

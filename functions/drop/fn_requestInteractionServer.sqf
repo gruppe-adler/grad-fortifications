@@ -6,7 +6,7 @@ if (_mode == "TAKE") then {
     if ([_unit,_fortType,1,true] call grad_fortifications_fnc_canTake) then {
         [_crate,_unit,_mode] remoteExec ["grad_fortifications_fnc_respondInteractionClient",2,false];
     } else {
-        player say2d "AddItemFailed";
+        playSound "AddItemFailed";
     };
 } else {
     [_crate,_unit,_mode] remoteExec ["grad_fortifications_fnc_respondInteractionClient",2,false];

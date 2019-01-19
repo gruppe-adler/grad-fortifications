@@ -1,6 +1,6 @@
 grad_fortifications_checkCollisionPFH = [{
     params ["_args", "_handle"];
-    _args params ["_visualLines","_boundingLines","_groundLines","_fort","_canFloat","_canCollide","_canPlaceOnRoad","_moduleRoot","_surfaceNormal"];
+    _args params ["_builder","_visualLines","_boundingLines","_groundLines","_fort","_canFloat","_canCollide","_canPlaceOnRoad","_moduleRoot","_surfaceNormal"];
 
     if (isNull _fort) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
 
@@ -10,20 +10,20 @@ grad_fortifications_checkCollisionPFH = [{
 
     _isOnGround = if (_canFloat) then {true} else {[_groundLinesWorld,_fort] call grad_fortifications_fnc_isOnGround};
     _isOnRoad = if (_canPlaceOnRoad) then {false} else {isOnRoad _fort};
-    _customCondition = [_fort,player] call compile ([missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> typeOf _fort >> "condition","text","true"] call CBA_fnc_getConfigEntry);
+    _customCondition = [_fort,_builder] call compile ([missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> typeOf _fort >> "condition","text","true"] call CBA_fnc_getConfigEntry);
 
     //check bounding box
-    player setVariable ["grad_fortifications_isColliding",false];
-    player setVariable ["grad_fortifications_isOnGround",_isOnGround];
-    player setVariable ["grad_fortifications_isOnRoad",_isOnRoad];
-    player setVariable ["grad_fortifications_isCustomCondition",_customCondition];
+    _builder setVariable ["grad_fortifications_isColliding",false];
+    _builder setVariable ["grad_fortifications_isOnGround",_isOnGround];
+    _builder setVariable ["grad_fortifications_isOnRoad",_isOnRoad];
+    _builder setVariable ["grad_fortifications_isCustomCondition",_customCondition];
     {
         _isColliding = if (_canCollide) then {false} else {[_x,_fort] call grad_fortifications_fnc_isColliding};
 
         _color = [0,1,0,1];
         if (_isColliding) then {
             _color = [1,0,0,1];
-            player setVariable ["grad_fortifications_isColliding",true];
+            _builder setVariable ["grad_fortifications_isColliding",true];
         };
 
         if (!_isOnGround || _isOnRoad || !_customCondition) then {
@@ -52,19 +52,19 @@ grad_fortifications_checkCollisionPFH = [{
     //update hint
     switch (true) do {
         case (!_customCondition): {
-            ["CUSTOM",_moduleRoot,_surfaceNormal,typeOf _fort] call grad_fortifications_fnc_updateHint;
+            ["CUSTOM",_moduleRoot,_surfaceNormal,_builder,typeOf _fort] call grad_fortifications_fnc_updateHint;
         };
         case (!_isOnGround): {
-            ["FLOATING",_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_updateHint;
+            ["FLOATING",_moduleRoot,_surfaceNormal,_builder] call grad_fortifications_fnc_updateHint;
         };
         case (_isOnRoad): {
-            ["ONROAD",_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_updateHint;
+            ["ONROAD",_moduleRoot,_surfaceNormal,_builder] call grad_fortifications_fnc_updateHint;
         };
-        case (player getVariable ["grad_fortifications_isColliding",true]): {
-            ["COLLIDING",_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_updateHint;
+        case (_builder getVariable ["grad_fortifications_isColliding",true]): {
+            ["COLLIDING",_moduleRoot,_surfaceNormal,_builder] call grad_fortifications_fnc_updateHint;
         };
         default {
-            ["CANPLACE",_moduleRoot,_surfaceNormal] call grad_fortifications_fnc_updateHint;
+            ["CANPLACE",_moduleRoot,_surfaceNormal,_builder] call grad_fortifications_fnc_updateHint;
         };
     };
 },0,_this] call CBA_fnc_addPerFrameHandler;

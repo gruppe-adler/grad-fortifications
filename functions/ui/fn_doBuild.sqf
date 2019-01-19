@@ -4,21 +4,23 @@
 params ["_mode"];
 
 disableSerialization;
-_dialog = findDisplay grad_fortifications_DIALOG;
-_modelCtrl = _dialog displayCtrl grad_fortifications_3DMODEL;
-_listCtrl = _dialog displayCtrl grad_fortifications_ITEMLIST;
-_vehicleListCtrl = _dialog displayCtrl grad_fortifications_vehicle_ITEMLIST;
+private _dialog = findDisplay grad_fortifications_DIALOG;
+private _modelCtrl = _dialog displayCtrl grad_fortifications_3DMODEL;
+private _listCtrl = _dialog displayCtrl grad_fortifications_ITEMLIST;
+private _vehicleListCtrl = _dialog displayCtrl grad_fortifications_vehicle_ITEMLIST;
+private _builder = ACE_player;
 
-_container = player getVariable ["grad_fortifications_currentContainer", objNull];
+
+private _container = _builder getVariable ["grad_fortifications_currentContainer", objNull];
 if (isNil "_mode") then {
-    if (player getVariable ["grad_fortifications_ui_lastSelectedContainer", player] == player) then {
+    if (_builder getVariable ["grad_fortifications_ui_lastSelectedContainer", _builder] == _builder) then {
         _mode = "NORMAL";
     } else {
         _mode = "DROPPED";
     };
 };
 
-_type = if (!isNull _vehicleListCtrl && (player getVariable ["grad_fortifications_ui_lastSelectedContainer", player] != player)) then {
+_type = if (!isNull _vehicleListCtrl && (_builder getVariable ["grad_fortifications_ui_lastSelectedContainer", _builder] != _builder)) then {
     _curSelID = lnbCurSelRow _vehicleListCtrl;
     _vehicleListCtrl lnbData [_curSelID,0]
 } else {
@@ -26,8 +28,8 @@ _type = if (!isNull _vehicleListCtrl && (player getVariable ["grad_fortification
     _listCtrl lnbData [_curSelID,0]
 };
 
-if (_mode == "DROPPED" && player != _container) then {
-    [player,_container,_type,"BUILD"] remoteExec ["grad_fortifications_fnc_respondStoreTake",2,false];
+if (_mode == "DROPPED" && _builder != _container) then {
+    [_builder,_container,_type,"BUILD"] remoteExec ["grad_fortifications_fnc_respondStoreTake",2,false];
 } else {
-    [_type,_mode] call grad_fortifications_fnc_startPlacement;
+    [_type,_mode,_builder,_container] call grad_fortifications_fnc_startPlacement;
 };
