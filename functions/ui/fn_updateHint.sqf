@@ -3,7 +3,7 @@
 
 if (!hasInterface) exitWith {};
 
-params ["_mode","_moduleRoot","_surfaceNormal","_builder",["_fortType",""]];
+params ["_mode","_moduleRoot","_surfaceNormal","_surfaceNormalForced","_builder",["_fortType",""]];
 
 disableSerialization;
 private _hint = uiNamespace getVariable "grad_fortifications_hint";
@@ -18,17 +18,13 @@ private _l5Txt  = _hint displayCtrl grad_fortifications_hint_TXT_LINE5;
 private _l5Pic  = _hint displayCtrl grad_fortifications_hint_PIC_LINE5;
 
 switch (true) do {
-    case (!_surfaceNormal): {
-        _l4Txt ctrlSetText "SURFACENORMAL DISABLED";
-        _l4BG ctrlSetBackgroundColor [0.4,0.4,0.4,0.75];
-    };
     case (_builder getVariable ["grad_fortifications_surfaceNormal",true]): {
         _l4Txt ctrlSetText "SURFACENORMAL ON";
-        _l4BG ctrlSetBackgroundColor [0,0.7,0,0.65];
+        _l4BG ctrlSetBackgroundColor ([[0,0.7,0,0.65],[0.4,0.4,0.4,0.75]] select _surfaceNormalForced);
     };
     case (!(_builder getVariable ["grad_fortifications_surfaceNormal",true])): {
         _l4Txt ctrlSetText "SURFACENORMAL OFF";
-        _l4BG ctrlSetBackgroundColor [0.65,0.65,0,0.65];
+        _l4BG ctrlSetBackgroundColor ([[0.65,0.65,0,0.65],[0.4,0.4,0.4,0.75]] select _surfaceNormalForced);
     };
 };
 
