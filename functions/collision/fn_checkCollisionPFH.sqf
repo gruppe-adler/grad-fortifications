@@ -1,6 +1,6 @@
 grad_fortifications_checkCollisionPFH = [{
     params ["_args", "_handle"];
-    _args params ["_builder","_visualLines","_boundingLines","_groundLines","_fort","_canFloat","_canCollide","_canPlaceOnRoad","_moduleRoot","_surfaceNormal"];
+    _args params ["_builder","_visualLines","_boundingLines","_groundLines","_fort","_canFloat","_canCollide","_canPlaceOnRoad","_moduleRoot","_surfaceNormal","_surfaceNormalForced"];
 
     if (isNull _fort) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
 
@@ -52,19 +52,19 @@ grad_fortifications_checkCollisionPFH = [{
     //update hint
     switch (true) do {
         case (!_customCondition): {
-            ["CUSTOM",_moduleRoot,_surfaceNormal,_builder,typeOf _fort] call grad_fortifications_fnc_updateHint;
+            ["CUSTOM",_moduleRoot,_surfaceNormal,_surfaceNormalForced,_builder,typeOf _fort] call grad_fortifications_fnc_updateHint;
         };
         case (!_isOnGround): {
-            ["FLOATING",_moduleRoot,_surfaceNormal,_builder] call grad_fortifications_fnc_updateHint;
+            ["FLOATING",_moduleRoot,_surfaceNormal,_surfaceNormalForced,_builder] call grad_fortifications_fnc_updateHint;
         };
         case (_isOnRoad): {
-            ["ONROAD",_moduleRoot,_surfaceNormal,_builder] call grad_fortifications_fnc_updateHint;
+            ["ONROAD",_moduleRoot,_surfaceNormal,_surfaceNormalForced,_builder] call grad_fortifications_fnc_updateHint;
         };
         case (_builder getVariable ["grad_fortifications_isColliding",true]): {
-            ["COLLIDING",_moduleRoot,_surfaceNormal,_builder] call grad_fortifications_fnc_updateHint;
+            ["COLLIDING",_moduleRoot,_surfaceNormal,_surfaceNormalForced,_builder] call grad_fortifications_fnc_updateHint;
         };
         default {
-            ["CANPLACE",_moduleRoot,_surfaceNormal,_builder] call grad_fortifications_fnc_updateHint;
+            ["CANPLACE",_moduleRoot,_surfaceNormal,_surfaceNormalForced,_builder] call grad_fortifications_fnc_updateHint;
         };
     };
 },0,_this] call CBA_fnc_addPerFrameHandler;

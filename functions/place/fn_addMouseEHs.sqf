@@ -13,7 +13,9 @@ grad_fortifications_mousewheelEH = (findDisplay 46) displayAddEventHandler ["Mou
 
         case (_builder getVariable ["grad_fortifications_ctrlDown",false]): {
             _currentHeight = _builder getVariable ["grad_fortifications_currentHeight",0];
-            _newHeight = ((_currentHeight + (_wheelChange/45)*_accelFactor) max -0.8) min 3;
+            _minHeight = _builder getVariable ["grad_fortifications_minHeight",-0.8];
+            _maxHeight = _builder getVariable ["grad_fortifications_maxHeight",3];
+            _newHeight = ((_currentHeight + (_wheelChange/45)*_accelFactor) max _minHeight) min _maxHeight;
             _builder setVariable ["grad_fortifications_currentHeight",_newHeight];
         };
 

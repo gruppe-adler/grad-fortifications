@@ -1,6 +1,6 @@
-params ["_obj","_boundingBoxSize"];
+params ["_obj","_boundingBoxSize","_boundingBoxOffset"];
 
-_boundingBox = boundingBoxReal _obj;
+_boundingBox = (boundingBoxReal _obj) apply {_x vectorAdd _boundingBoxOffset};
 _boundingBox params ["_p0","_p1"];
 _p0 params ["_x0","_y0","_z0"];
 _p1 params ["_x1","_y1","_z1"];

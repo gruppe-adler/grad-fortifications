@@ -28,7 +28,7 @@ grad_fortifications_keyupEH = (findDisplay 46) displayAddEventHandler ["KeyUp", 
     params ["_control","_DIK"];
 
     private _builder = ACE_player;
-    
+
     switch (true) do {
         case (_DIK in [42,54]): {
             _builder setVariable ["grad_fortifications_shiftDown",false];
@@ -40,10 +40,8 @@ grad_fortifications_keyupEH = (findDisplay 46) displayAddEventHandler ["KeyUp", 
             _builder setVariable ["grad_fortifications_altDown",false];
         };
         case (_DIK == 15): {
-            if (_builder getVariable ["grad_fortifications_surfaceNormal",true]) then {
-                _builder setVariable ["grad_fortifications_surfaceNormal",false];
-            } else {
-                _builder setVariable ["grad_fortifications_surfaceNormal",true];
+            if !(_builder getVariable ["grad_fortifications_surfaceNormalForced",false]) then {
+                _builder setVariable ["grad_fortifications_surfaceNormal",!(_builder getVariable ["grad_fortifications_surfaceNormal",true])];
             };
         };
     };
