@@ -36,7 +36,7 @@ _builder setVariable ["grad_fortifications_currentMode", _mode];
 _builder setVariable ["grad_fortifications_currentSize", _size];
 _builder setVariable ["grad_fortifications_currentDistance", (((_size*2.5)^(1/2)) max 2)];
 _builder setVariable ["grad_fortifications_currentDirection", 0];
-_builder setVariable ["grad_fortifications_currentHeight",(-0.8 max _minHeight) min _maxHeight];
+_builder setVariable ["grad_fortifications_currentHeight",(0 max _minHeight) min _maxHeight];
 _builder setVariable ["grad_fortifications_minHeight",_minHeight];
 _builder setVariable ["grad_fortifications_maxHeight",_maxHeight];
 _builder setVariable ["grad_fortifications_surfaceNormal",_surfaceNormal];

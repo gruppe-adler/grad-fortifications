@@ -30,6 +30,7 @@ class GRAD_fortifications {
         class getObjectSize {};
         class getVehicleInventorySize {};
         class initModule {postInit = 1;};
+        class initSettings {preInit = 1;};
         class isOwner {};
         class isVehicle {};
         class removeFort {};
