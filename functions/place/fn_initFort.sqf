@@ -6,18 +6,6 @@ if (isNull _fort) exitWith {};
 private _type = typeOf _fort;
 if ([_type] call grad_fortifications_fnc_isVehicle) exitWith {};
 
-switch (grad_fortifications_fortificationOwnerType) do {
-    case ("BUILDER"): {
-        _fort setVariable ["grad_fortifications_fortOwner",_owner,false];
-    };
-    case ("GROUP"): {
-        _fort setVariable ["grad_fortifications_fortOwner",group _owner,false];
-    };
-    case ("SIDE"): {
-        _fort setVariable ["grad_fortifications_fortOwner",side _owner,false];
-    };
-};
-
 //demolition
 _canDemolish = ([(missionConfigFile >> "CfgGradFortifications" >> "Fortifications" >> _type >> "canDemolish"),"number",1] call CBA_fnc_getConfigEntry) == 1;
 if (_canDemolish) then {
