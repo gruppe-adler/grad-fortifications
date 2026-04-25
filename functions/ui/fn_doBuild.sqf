@@ -31,5 +31,8 @@ _type = if (!isNull _vehicleListCtrl && (_builder getVariable ["grad_fortificati
 if (_mode == "DROPPED" && _builder != _container) then {
     [_builder,_container,_type,"BUILD"] remoteExec ["grad_fortifications_fnc_respondStoreTake",2,false];
 } else {
-    [_type,_mode,_builder,_container] call grad_fortifications_fnc_startPlacement;
+    [{!(inputAction "DefaultAction" > 0)},{
+        params ["_type", "_mode", "_builder", "_container"];
+        [_type, _mode, _builder, _container] call grad_fortifications_fnc_startPlacement;
+    },[_type, _mode, _builder, _container]] call CBA_fnc_waitUntilAndExecute;
 };
