@@ -85,7 +85,7 @@ class grad_fortifications_vehicle: grad_fortifications {
 
             colorBackground[] = {0,0.8,0,0.8};
             text = "<";
-            action = "['STORE'] call grad_fortifications_fnc_requestStoreTake";
+            onButtonClick = "['STORE'] call grad_fortifications_fnc_requestStoreTake";
         };
 
         class TakeButton: grad_fortifications_RscButton {
@@ -99,13 +99,13 @@ class grad_fortifications_vehicle: grad_fortifications {
 
             colorBackground[] = {0,0.8,0,0.8};
             text = ">";
-            action = "['TAKE'] call grad_fortifications_fnc_requestStoreTake";
+            onButtonClick = "['TAKE'] call grad_fortifications_fnc_requestStoreTake";
         };
 
         class BuildButton: BuildButton {
             idc = grad_fortifications_BUILDBUTTON;
             text = "BUILD";
-            action = "[] call grad_fortifications_fnc_doBuild; closeDialog 0";
+            onButtonClick = "[] call grad_fortifications_fnc_doBuild; closeDialog 0";
 
             x = grad_fortifications_vehicle_BG_X + grad_fortifications_vehicle_BG_W - grad_fortifications_Button_W;
             y = grad_fortifications_BG_Y + grad_fortifications_BG_H + grad_fortifications_ItemSpace_Y;

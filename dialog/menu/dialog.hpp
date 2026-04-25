@@ -72,7 +72,7 @@ class grad_fortifications {
         class BuildButton: grad_fortifications_RscButton {
             idc = grad_fortifications_BUILDBUTTON;
             text = "BUILD";
-            action = "['NORMAL'] call grad_fortifications_fnc_doBuild; closeDialog 0";
+            onButtonClick = "['NORMAL'] call grad_fortifications_fnc_doBuild; closeDialog 0";
 
             x = grad_fortifications_BG_X + grad_fortifications_BG_W - grad_fortifications_Button_W;
             y = grad_fortifications_BG_Y + grad_fortifications_BG_H + grad_fortifications_ItemSpace_Y;
@@ -83,7 +83,7 @@ class grad_fortifications {
         class DropButton: grad_fortifications_RscButton {
             idc = grad_fortifications_DROPBUTTON;
             text = "DROP";
-            action = "_this call grad_fortifications_fnc_doDrop";
+            onButtonClick = "_this call grad_fortifications_fnc_doDrop";
 
             x = grad_fortifications_BG_X + grad_fortifications_BG_W - grad_fortifications_ItemSpace_X - 2*grad_fortifications_Button_W;
             y = grad_fortifications_BG_Y + grad_fortifications_BG_H + grad_fortifications_ItemSpace_Y;
