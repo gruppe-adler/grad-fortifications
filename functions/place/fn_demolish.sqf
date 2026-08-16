@@ -22,4 +22,4 @@ _onCancel = {
     _args params ["_fort","_unit"];
     [_unit] call grad_fortifications_fnc_stopAnimation;
 };
-[_demolitionTime, [_fort,_unit], _onComplete, _onCancel, "Demolishing..."] call ace_common_fnc_progressBar;
+[_demolitionTime, [_fort,_unit], _onComplete, _onCancel, localize "$STR_gruppe_adler_fortifications_aceprogress_demolish"] call ace_common_fnc_progressBar;

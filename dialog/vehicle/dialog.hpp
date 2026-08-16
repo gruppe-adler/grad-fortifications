@@ -104,7 +104,7 @@ class grad_fortifications_vehicle: grad_fortifications {
 
         class BuildButton: BuildButton {
             idc = grad_fortifications_BUILDBUTTON;
-            text = "BUILD";
+            text = "$STR_gruppe_adler_fortifications_menu_build";
             onButtonClick = "[] call grad_fortifications_fnc_doBuild; closeDialog 0";
 
             x = grad_fortifications_vehicle_BG_X + grad_fortifications_vehicle_BG_W - grad_fortifications_Button_W;

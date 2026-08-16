@@ -2,7 +2,7 @@ if (hasInterface) then {
 
     [] call grad_fortifications_fnc_addVehicleInteractions;
     private _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
-    private _action = ["grad_fortifications_mainBuildAction", "Fortifications", _moduleRoot + "\data\sandbags.paa", {
+    private _action = ["grad_fortifications_mainBuildAction", localize "$STR_gruppe_adler_fortifications_acemenu_fortifications", _moduleRoot + "\data\sandbags.paa", {
         [grad_fortifications_fnc_loadFortDialog,[_this select 0, _this select 1]] call CBA_fnc_execNextFrame
     },{
         params ["","_unit"];
