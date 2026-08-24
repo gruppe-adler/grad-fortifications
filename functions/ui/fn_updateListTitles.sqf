@@ -15,8 +15,8 @@ private _displayName = toUpper ([configFile >> "CfgVehicles" >> (typeOf _interac
 
 if (_builder == _selectedContainer) then {
     _myTitleCtrl ctrlSetText (toUpper profileName);
-    _vehicleTitleCtrl ctrlSetText (if (_canTakeStore) then {_displayName} else {_displayName + " (NO SPACE)"});
+    _vehicleTitleCtrl ctrlSetText (if (_canTakeStore) then {_displayName} else {_displayName + localize "$STR_gruppe_adler_fortifications_hint_nospace"});
 } else {
     _vehicleTitleCtrl ctrlSetText _displayName;
-    _myTitleCtrl ctrlSetText (if (_canTakeStore) then {toUpper profileName} else {toUpper profileName + " (NO SPACE)"});
+    _myTitleCtrl ctrlSetText (if (_canTakeStore) then {toUpper profileName} else {toUpper profileName + localize "$STR_gruppe_adler_fortifications_hint_nospace"});
 };

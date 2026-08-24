@@ -33,11 +33,11 @@ _xScale = X_SCALE;
 if (_open) then {
     _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
 
-    _l1Txt ctrlSetText "ROTATE";
+    _l1Txt ctrlSetText localize "$STR_gruppe_adler_fortifications_hint_rotate";
     _l1Pic ctrlSetText (_moduleRoot + "\data\shiftkey.paa");
-    _l2Txt ctrlSetText "LOWER/RAISE";
+    _l2Txt ctrlSetText localize "$STR_gruppe_adler_fortifications_hint_lowerraise";
     _l2Pic ctrlSetText (_moduleRoot + "\data\ctrlkey.paa");
-    _l3Txt ctrlSetText "SPEED UP";
+    _l3Txt ctrlSetText localize "$STR_gruppe_adler_fortifications_hint_speed";
     _l3Pic ctrlSetText (_moduleRoot + "\data\altkey.paa");
     _l4Pic ctrlSetText (_moduleRoot + "\data\tabkey.paa");
 

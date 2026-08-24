@@ -25,4 +25,4 @@ private _onCancel = {
     _args params ["_fort","_unit"];
     [_unit] call grad_fortifications_fnc_stopAnimation;
 };
-[_packUpTime, [_fort,_unit,_type], _onComplete, _onCancel, "Packing up..."] call ace_common_fnc_progressBar;
+[_packUpTime, [_fort,_unit,_type], _onComplete, _onCancel, localize "$STR_gruppe_adler_fortifications_aceprogress_packup"] call ace_common_fnc_progressBar;

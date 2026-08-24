@@ -16,8 +16,8 @@ if (isClass (configfile >> "CfgPatches" >> "CUP_Core")) then {
 
 _moduleRoot = [] call grad_fortifications_fnc_getModuleRoot;
 _displayName = [_type] call grad_fortifications_fnc_getDisplayName;
-_pickUpName = format ["Pick up (%1)", _displayName];
-_buildName = format ["Build (%1)", _displayName];
+_pickUpName = format [localize "$STR_gruppe_adler_fortifications_acemenu_pickup", _displayName];
+_buildName = format [localize "$STR_gruppe_adler_fortifications_acemenu_build", _displayName];
 
 _action = ["grad_fortifications_pickupAction", _pickUpName, "\A3\ui_f\data\igui\cfg\actions\take_ca.paa", {[_this select 0, _this select 1,"TAKE"] call grad_fortifications_fnc_requestInteractionServer}, {true}] call ace_interact_menu_fnc_createAction;
 [_crate, 0, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;

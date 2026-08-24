@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="gruppe_adler">
+    <Package name="fortifications">
+        <Key ID="STR_gruppe_adler_fortifications_acemenu_fortifications">
+            <English>Fortifications</English>
+            <Czech>Opevnění</Czech>
+            <French>Fortifications</French>
+            <Spanish>Fortificaciones</Spanish>
+            <Italian>Fortificazioni</Italian>
+            <Polish>Umocnienia</Polish>
+            <Portuguese>Fortificações</Portuguese>
+            <Russian>Укрепления</Russian>
+            <German>Befestigungen</German>
+            <Korean>요새화</Korean>
+            <Japanese>陣地構築</Japanese>
+            <Chinese>防禦工事</Chinese>
+            <Chinesesimp>防御工事</Chinesesimp>
+            <Turkish>Müstahkem Mevkiler</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_acemenu_pickup">
+            <English>Pick up (%1)</English>
+            <Czech>Sebrat (%1)</Czech>
+            <French>Ramasser (%1)</French>
+            <Spanish>Recoger (%1)</Spanish>
+            <Italian>Raccogli (%1)</Italian>
+            <Polish>Podnieś (%1)</Polish>
+            <Portuguese>Pegar (%1)</Portuguese>
+            <Russian>Подобрать (%1)</Russian>
+            <German>Aufnehmen (%1)</German>
+            <Korean>줍기 (%1)</Korean>
+            <Japanese>拾う (%1)</Japanese>
+            <Chinese>拾取 (%1)</Chinese>
+            <Chinesesimp>拾取 (%1)</Chinesesimp>
+            <Turkish>Topla (%1)</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_acemenu_build">
+            <English>Build (%1)</English>
+            <Czech>Postavit (%1)</Czech>
+            <French>Construire (%1)</French>
+            <Spanish>Construir (%1)</Spanish>
+            <Italian>Costruisci (%1)</Italian>
+            <Polish>Zbuduj (%1)</Polish>
+            <Portuguese>Construir (%1)</Portuguese>
+            <Russian>Построить (%1)</Russian>
+            <German>Bauen (%1)</German>
+            <Korean>건설 (%1)</Korean>
+            <Japanese>建設 (%1)</Japanese>
+            <Chinese>建造 (%1)</Chinese>
+            <Chinesesimp>建造 (%1)</Chinesesimp>
+            <Turkish>İnşa et (%1)</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_acemenu_demolish">
+            <English>Demolish fortification</English>
+            <Czech>Zdemolovat opevnění</Czech>
+            <French>Démolir la fortification</French>
+            <Spanish>Demoler fortificación</Spanish>
+            <Italian>Demolisci fortificazione</Italian>
+            <Polish>Zburz umocnienie</Polish>
+            <Portuguese>Demolir fortificação</Portuguese>
+            <Russian>Снести укрепление</Russian>
+            <German>Befestigung abreißen</German>
+            <Korean>요새 철거</Korean>
+            <Japanese>陣地を撤คุ</Japanese>
+            <Chinese>拆除防禦工事</Chinese>
+            <Chinesesimp>拆除防御工事</Chinesesimp>
+            <Turkish>Müstahkem mevkiyi yık</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_acemenu_packup">
+            <English>Pack up fortification</English>
+            <Czech>Sbalit opevnění</Czech>
+            <French>Plier la fortification</French>
+            <Spanish>Empacar fortificación</Spanish>
+            <Italian>Raccogli fortificazione</Italian>
+            <Polish>Spakuj umocnienie</Polish>
+            <Portuguese>Empacotar fortificação</Portuguese>
+            <Russian>Сложить укрепление</Russian>
+            <German>Befestigung abbauen</German>
+            <Korean>요새 회수</Korean>
+            <Japanese>陣地を撤収</Japanese>
+            <Chinese>打包防禦工事</Chinese>
+            <Chinesesimp>打包防御工事</Chinesesimp>
+            <Turkish>Müstahkem mevkiyi topla</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_aceprogress_demolish">
+            <English>Demolishing...</English>
+            <Czech>Demoluji...</Czech>
+            <French>Démolition en cours...</French>
+            <Spanish>Demoliendo...</Spanish>
+            <Italian>Demolizione in corso...</Italian>
+            <Polish>Burzenie...</Polish>
+            <Portuguese>Demolindo...</Portuguese>
+            <Russian>Снос...</Russian>
+            <German>Wird abgerissen...</German>
+            <Korean>철거 중...</Korean>
+            <Japanese>解体中...</Japanese>
+            <Chinese>拆除中...</Chinese>
+            <Chinesesimp>拆除中...</Chinesesimp>
+            <Turkish>Yıkılıyor...</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_aceprogress_packup">
+            <English>Packing up...</English>
+            <Czech>Balím...</Czech>
+            <French>Emballage en cours...</French>
+            <Spanish>Empacando...</Spanish>
+            <Italian>Raccogliendo...</Italian>
+            <Polish>Pakowanie...</Polish>
+            <Portuguese>Empacotando...</Portuguese>
+            <Russian>Упаковка...</Russian>
+            <German>Wird verpackt...</German>
+            <Korean>회수 중...</Korean>
+            <Japanese>撤収中...</Japanese>
+            <Chinese>打包中...</Chinese>
+            <Chinesesimp>打包中...</Chinesesimp>
+            <Turkish>Toplanıyor...</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_aceprogress_placing">
+            <English>Placing...</English>
+            <Czech>Umísťuji...</Czech>
+            <French>Placement en cours...</French>
+            <Spanish>Colocando...</Spanish>
+            <Italian>Posizionamento...</Italian>
+            <Polish>Umieszczanie...</Polish>
+            <Portuguese>Colocando...</Portuguese>
+            <Russian>Размещение...</Russian>
+            <German>Wird platziert...</German>
+            <Korean>설치 중...</Korean>
+            <Japanese>配置中...</Japanese>
+            <Chinese>放置中...</Chinese>
+            <Chinesesimp>放置中...</Chinesesimp>
+            <Turkish>Yerleştiriliyor...</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_menu_myfortifications">
+            <English>MY FORTIFICATIONS</English>
+            <Czech>MOJE OPEVNĚNÍ</Czech>
+            <French>MES FORTIFICATIONS</French>
+            <Spanish>MIS FORTIFICACIONES</Spanish>
+            <Italian>LE MIE FORTIFICAZIONI</Italian>
+            <Polish>MOJE UMOCNIENIA</Polish>
+            <Portuguese>MINHAS FORTIFICAÇÕES</Portuguese>
+            <Russian>МОИ УКРЕПЛЕНИЯ</Russian>
+            <German>MEINE BEFESTIGUNGEN</German>
+            <Korean>내 요새화</Korean>
+            <Japanese>自分の陣地構築</Japanese>
+            <Chinese>我的防御工事</Chinese>
+            <Chinesesimp>我的防御工事</Chinesesimp>
+            <Turkish>MÜSTAHKEM MEVKİLERİM</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_menu_build">
+            <English>BUILD</English>
+            <Czech>STAVĚT</Czech>
+            <French>CONSTRUIRE</French>
+            <Spanish>CONSTRUIR</Spanish>
+            <Italian>COSTRUISCI</Italian>
+            <Polish>BUDUJ</Polish>
+            <Portuguese>CONSTRUIR</Portuguese>
+            <Russian>СТРОИТЬ</Russian>
+            <German>BAUEN</German>
+            <Korean>건설</Korean>
+            <Japanese>建設</Japanese>
+            <Chinese>建造</Chinese>
+            <Chinesesimp>建造</Chinesesimp>
+            <Turkish>INŞA ET</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_menu_drop">
+            <English>DROP</English>
+            <Czech>ODHODIT</Czech>
+            <French>JETER</French>
+            <Spanish>SOLTAR</Spanish>
+            <Italian>LASCIA</Italian>
+            <Polish>UPUŚĆ</Polish>
+            <Portuguese>LARGAR</Portuguese>
+            <Russian>SBROSYT'</Russian>
+            <German>ABLEGEN</German>
+            <Korean>버리기</Korean>
+            <Japanese>ドロップ</Japanese>
+            <Chinese>丟棄</Chinese>
+            <Chinesesimp>丢弃</Chinesesimp>
+            <Turkish>AT</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_hint_rotate">
+            <English>ROTATE</English>
+            <Czech>OTOČIT</Czech>
+            <French>TOURNER</French>
+            <Spanish>ROTAR</Spanish>
+            <Italian>RUOTA</Italian>
+            <Polish>OBRÓĆ</Polish>
+            <Portuguese>ROTACIONAR</Portuguese>
+            <Russian>ВРАЩАТЬ</Russian>
+            <German>DREHEN</German>
+            <Korean>회전</Korean>
+            <Japanese>回転</Japanese>
+            <Chinese>旋轉</Chinese>
+            <Chinesesimp>旋转</Chinesesimp>
+            <Turkish>DÖNDÜR</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_hint_lowerraise">
+            <English>LOWER/RAISE</English>
+            <Czech>SNÍŽIT/ZVÝŠIT</Czech>
+            <French>ABAISSER/HAUSSER</French>
+            <Spanish>BAJAR/SUBIR</Spanish>
+            <Italian>ABBASSA/ALZA</Italian>
+            <Polish>OBNIŻ/PODNIEŚ</Polish>
+            <Portuguese>BAIXAR/ELEVAR</Portuguese>
+            <Russian>ОПУСТИТЬ/ПОДНЯТЬ</Russian>
+            <German>SENKEN/HEBEN</German>
+            <Korean>내리기/올리기</Korean>
+            <Japanese>上げる</Japanese>
+            <Chinese>降低/升高</Chinese>
+            <Chinesesimp>降低/升高</Chinesesimp>
+            <Turkish>ALÇALT/YÜKSELT</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_hint_speed">
+            <English>SPEED UP</English>
+            <Czech>ZRYCHLIT</Czech>
+            <French>ACCÉLÉRER</French>
+            <Spanish>ACELERAR</Spanish>
+            <Italian>ACCELERA</Italian>
+            <Polish>PRZYSPIEŚ</Polish>
+            <Portuguese>ACELERAR</Portuguese>
+            <Russian>УСКОРИТЬ</Russian>
+            <German>BESCHLEUNIGEN</German>
+            <Korean>가속</Korean>
+            <Japanese>加速</Japanese>
+            <Chinese>加速</Chinese>
+            <Chinesesimp>加速</Chinesesimp>
+            <Turkish>HIZLANDIR</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_hint_surfacenormalon">
+            <English>SURFACENORMAL ON</English>
+            <Czech>POVRCHOVÁ NOR MÁLA ZAP</Czech>
+            <French>ALIGNEMENT SURFACE ACTIF</French>
+            <Spanish>ALINEAR A SUPERFICIE SI</Spanish>
+            <Italian>ALLINEA ALLA SUPERFICIE ON</Italian>
+            <Polish>RÓWNOCZEŚNIE DO PODŁOŻA WŁ</Polish>
+            <Portuguese>ALINHAR À SUPERFÍCIE LIGADO</Portuguese>
+            <Russian>ПРИВЯЗКА К РЕЛЬЕФУ ВКЛ</Russian>
+            <German>OBERFLÄCHENAUSRICHTUNG EIN</German>
+            <Korean>지면 맞춤 켜기</Korean>
+            <Japanese>傾斜追従</Japanese>
+            <Chinese>貼合地表 開</Chinese>
+            <Chinesesimp>贴合地表 开</Chinesesimp>
+            <Turkish>YÜZEY HİZALAMA AÇIK</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_hint_surfacenormaloff">
+            <English>SURFACENORMAL OFF</English>
+            <Czech>POVRCHOVÁ NORMÁLA VYP</Czech>
+            <French>ALIGNEMENT SURFACE INACTIF</French>
+            <Spanish>ALINEAR A SUPERFICIE NO</Spanish>
+            <Italian>ALLINEA ALLA SUPERFICIE OFF</Italian>
+            <Polish>RÓWNOCZEŚNIE DO PODŁOŻA WYŁ</Polish>
+            <Portuguese>ALINHAR À SUPERFÍCIE DESLIGADO</Portuguese>
+            <Russian>ПРИВЯЗКА К РЕЛЬЕФУ ВЫКЛ</Russian>
+            <German>OBERFLÄCHENAUSRICHTUNG AUS</German>
+            <Korean>지면 맞춤 끄기</Korean>
+            <Japanese>傾斜追従</Japanese>
+            <Chinese>貼合地表 關</Chinese>
+            <Chinesesimp>贴合地表 关</Chinesesimp>
+            <Turkish>YÜZEY HİZALAMA KAPALI</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_hint_collision">
+            <English>COLLIDING!</English>
+            <Czech>KOLIZE!</Czech>
+            <French>COLLISION !</French>
+            <Spanish>¡COLISIONANDO!</Spanish>
+            <Italian>COLLISIONE!</Italian>
+            <Polish>KOLIZJA!</Polish>
+            <Portuguese>COLISÃO!</Portuguese>
+            <Russian>СТОЛКНОВЕНИЕ!</Russian>
+            <German>KOLLISION!</German>
+            <Korean>충돌 중!</Korean>
+            <Japanese>衝突中！</Japanese>
+            <Chinese>碰撞中！</Chinese>
+            <Chinesesimp>碰撞中！</Chinesesimp>
+            <Turkish>ÇARPIŞMA!</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_hint_notonground">
+            <English>NOT ON GROUND!</English>
+            <Czech>NENÍ NA ZEMI!</Czech>
+            <French>PAS SUR LE SOL !</French>
+            <Spanish>¡NO ESTÁ EN EL SUELO!</Spanish>
+            <Italian>NON SUL TERRENO!</Italian>
+            <Polish>NIE NA ZIEMI!</Polish>
+            <Portuguese>NÃO ESTÁ NO CHÃO!</Portuguese>
+            <Russian>НЕ НА ГРУНТЕ!</Russian>
+            <German>NICHT AUF DEM BODEN!</German>
+            <Korean>지면에 닿지 않음!</Korean>
+            <Japanese>接地していません！</Japanese>
+            <Chinese>未接觸地面！</Chinese>
+            <Chinesesimp>未接触地面！</Chinesesimp>
+            <Turkish>ZEMİNDE DEĞİL!</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_hint_noplacementroad">
+            <English>CAN'T PLACE ON ROAD!</English>
+            <Czech>NELZE UMÍSTIT NA SILNICI!</Czech>
+            <French>IMPOSSIBLE DE PLACER SUR LA ROUTE !</French>
+            <Spanish>¡NO SE PUEDE COLOCAR EN LA CARRETERA!</Spanish>
+            <Italian>IMPOSSIBILE POSIZIONARE SULLA STRADA!</Italian>
+            <Polish>NIE MOŻNA UMIEŚCIĆ NA DRODZE!</Polish>
+            <Portuguese>NÃO É POSSÍVEL COLOCAR NA ESTRADA!</Portuguese>
+            <Russian>НЕЛЬЗЯ СТАВИТЬ НА ДОРОГЕ!</Russian>
+            <German>NICH AUF STRASSE PLATZIERBAR!</German>
+            <Korean>도로 위에 설치 불가!</Korean>
+            <Japanese>道路上に配置できません！</Japanese>
+            <Chinese>無法放置於道路上！</Chinese>
+            <Chinesesimp>无法放置于道路上！</Chinesesimp>
+            <Turkish>YOLA YERLEŞTİRİLEMEZ!</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_hint_noplacement">
+            <English>CAN'T PLACE!</English>
+            <Czech>NELZE UMÍSTIT!</Czech>
+            <French>IMPOSSIBLE DE PLACER !</French>
+            <Spanish>¡NO SE PUEDE COLOCAR!</Spanish>
+            <Italian>IMPOSSIBILE POSIZIONARE!</Italian>
+            <Polish>NIE MOŻNA UMIEŚCIĆ!</Polish>
+            <Portuguese>NÃO É POSSÍVEL COLOCAR!</Portuguese>
+            <Russian>НЕЛЬЗЯ УСТАНОВИТЬ!</Russian>
+            <German>NICHT PLATZIERBAR!</German>
+            <Korean>설치 불가!</Korean>
+            <Japanese>配置できません！</Japanese>
+            <Chinese>無法放置！</Chinese>
+            <Chinesesimp>无法放置！</Chinesesimp>
+            <Turkish>YERLEŞTİRİLEMEZ!</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_hint_canplace">
+            <English>CAN PLACE</English>
+            <Czech>LZE UMÍSTIT</Czech>
+            <French>PLACEMENT POSSIBLE</French>
+            <Spanish>SE PUEDE COLOCAR</Spanish>
+            <Italian>POSIZIONABILE</Italian>
+            <Polish>MOŻNA UMIEŚCIĆ</Polish>
+            <Portuguese>PODE COLOCAR</Portuguese>
+            <Russian>МОЖНО УСТАНОВИТЬ</Russian>
+            <German>PLATZIERBAR</German>
+            <Korean>설치 가능</Korean>
+            <Japanese>配置可能</Japanese>
+            <Chinese>可以放置</Chinese>
+            <Chinesesimp>可以放置</Chinesesimp>
+            <Turkish>YERLEŞTİRİLEBİLİR</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_hint_nospace">
+            <English>(NO SPACE)</English>
+            <Czech>(NEDOSTATEK MÍSTA)</Czech>
+            <French>(PAS D'ESPACE)</French>
+            <Spanish>(SIN ESPACIO)</Spanish>
+            <Italian>(SPAZIO INSUFFICIENTE)</Italian>
+            <Polish>(BRAK MIEJSCA)</Polish>
+            <Portuguese>(SEM ESPAÇO)</Portuguese>
+            <Russian>(НЕТ МЕСТА)</Russian>
+            <German>(KEIN PLATZ)</German>
+            <Korean>(공간 없음)</Korean>
+            <Japanese>(スペースなし)</Japanese>
+            <Chinese>(無空間)</Chinese>
+            <Chinesesimp>(无空间)</Chinesesimp>
+            <Turkish>(ALAN YOK)</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_acemousehint_place">
+            <English>Place</English>
+            <Czech>Umístit</Czech>
+            <French>Placer</French>
+            <Spanish>Colocar</Spanish>
+            <Italian>Posiziona</Italian>
+            <Polish>Umieść</Polish>
+            <Portuguese>Colocar</Portuguese>
+            <Russian>Разместить</Russian>
+            <German>Platzieren</German>
+            <Korean>설치</Korean>
+            <Japanese>配置</Japanese>
+            <Chinese>放置</Chinese>
+            <Chinesesimp>放置</Chinesesimp>
+            <Turkish>Yerleştir</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_acemousehint_cancel">
+            <English>Cancel</English>
+            <Czech>Zrušit</Czech>
+            <French>Annuler</French>
+            <Spanish>Cancelar</Spanish>
+            <Italian>Annulla</Italian>
+            <Polish>Anuluj</Polish>
+            <Portuguese>Cancelar</Portuguese>
+            <Russian>Отмена</Russian>
+            <German>Abbrechen</German>
+            <Korean>취소</Korean>
+            <Japanese>キャンセル</Japanese>
+            <Chinese>取消</Chinese>
+            <Chinesesimp>取消</Chinesesimp>
+            <Turkish>İptal</Turkish>
+        </Key>
+        <Key ID="STR_gruppe_adler_fortifications_acemousehint_manipulate">
+            <English>Manipulate</English>
+            <Czech>Manipulovat</Czech>
+            <French>Manipuler</French>
+            <Spanish>Manipular</Spanish>
+            <Italian>Manipola</Italian>
+            <Polish>Manipuluj</Polish>
+            <Portuguese>Manipular</Portuguese>
+            <Russian>Управлять</Russian>
+            <German>Manipulieren</German>
+            <Korean>조작</Korean>
+            <Japanese>操作</Japanese>
+            <Chinese>操縱</Chinese>
+            <Chinesesimp>操纵</Chinesesimp>
+            <Turkish>Yönlendir</Turkish>
+        </Key>
+    </Package>
+</Project>

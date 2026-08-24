@@ -58,4 +58,4 @@ private _groundLines = [_fort] call grad_fortifications_fnc_getGroundLines;
 [] call grad_fortifications_fnc_addMouseEHs;
 [] call grad_fortifications_fnc_addKeyEHs;
 
-["Place", "Cancel", "Manipulate"] call ace_interaction_fnc_showMouseHint;
+[localize "STR_gruppe_adler_fortifications_acemousehint_place", localize "STR_gruppe_adler_fortifications_acemousehint_cancel", localize "STR_gruppe_adler_fortifications_acemousehint_manipulate"] call ace_interaction_fnc_showMouseHint;

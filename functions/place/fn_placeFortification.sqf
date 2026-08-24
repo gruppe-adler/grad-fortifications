@@ -49,7 +49,7 @@ if (_builder getVariable ["grad_fortifications_isColliding",true] || !(_builder 
             [_builder,true],
             _doPlace,
             {(_this select 0) call grad_fortifications_fnc_stopAnimation; [] call grad_fortifications_fnc_cancelPlacement},
-            "Placing..."
+            localize "$STR_gruppe_adler_fortifications_aceprogress_placing"
         ] call ace_common_fnc_progressBar;
     };
 };

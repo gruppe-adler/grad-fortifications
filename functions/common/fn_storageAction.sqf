@@ -25,6 +25,6 @@ private _onActivate = {
     [grad_fortifications_fnc_loadVehicleDialog,[_this select 0, _this select 1]] call CBA_fnc_execNextFrame;
 };
 
-_action = ["grad_fortifications_containerBuildAction", "Fortifications", _moduleRoot + "\data\sandbags.paa",_onActivate,_condition] call ace_interact_menu_fnc_createAction;
+_action = ["grad_fortifications_containerBuildAction", localize "$STR_gruppe_adler_fortifications_acemenu_fortifications", _moduleRoot + "\data\sandbags.paa",_onActivate,_condition] call ace_interact_menu_fnc_createAction;
 
 _action

@@ -27,7 +27,7 @@ class grad_fortifications {
 
         class DialogTitleText: grad_fortifications_RscText {
             idc = grad_fortifications_TITLE;
-            text = "MY FORTIFICATIONS";
+            text = "$STR_gruppe_adler_fortifications_menu_myfortifications";
             sizeEx = 0.04 * TEXT_SCALE;
 
             x = grad_fortifications_BG_X;
@@ -71,7 +71,7 @@ class grad_fortifications {
 
         class BuildButton: grad_fortifications_RscButton {
             idc = grad_fortifications_BUILDBUTTON;
-            text = "BUILD";
+            text = "$STR_gruppe_adler_fortifications_menu_build";
             onButtonClick = "['NORMAL'] call grad_fortifications_fnc_doBuild; closeDialog 0";
 
             x = grad_fortifications_BG_X + grad_fortifications_BG_W - grad_fortifications_Button_W;
@@ -82,7 +82,7 @@ class grad_fortifications {
 
         class DropButton: grad_fortifications_RscButton {
             idc = grad_fortifications_DROPBUTTON;
-            text = "DROP";
+            text = "$STR_gruppe_adler_fortifications_menu_drop";
             onButtonClick = "_this call grad_fortifications_fnc_doDrop";
 
             x = grad_fortifications_BG_X + grad_fortifications_BG_W - grad_fortifications_ItemSpace_X - 2*grad_fortifications_Button_W;
