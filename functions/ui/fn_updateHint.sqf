@@ -23,7 +23,7 @@ switch (true) do {
         _l4BG ctrlSetBackgroundColor ([[0,0.7,0,0.65],[0.4,0.4,0.4,0.75]] select _surfaceNormalForced);
     };
     case (!(_builder getVariable ["grad_fortifications_surfaceNormal",true])): {
-        _l4Txt ctrlSetText "$STR_grad_fortifications_hint_surfacenormaloff";
+        _l4Txt ctrlSetText localize "$STR_gruppe_adler_fortifications_hint_surfacenormaloff";
         _l4BG ctrlSetBackgroundColor ([[0.65,0.65,0,0.65],[0.4,0.4,0.4,0.75]] select _surfaceNormalForced);
     };
 };
