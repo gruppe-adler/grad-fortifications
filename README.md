@@ -34,3 +34,7 @@ http://file000.flaticon.com/downloads/license/license.pdf
 
 1. Shift key icon (also modified to show ctrl and alt instead):  
 Made by [Freepik](http://www.flaticon.com/authors/freepik) from www.flaticon.com
+
+### Localization 
+String tables were assisted via AI. These translations are provided "as-is" and may contain contextual, technical, or grammatical errors.
+If you are a native speaker and wish to correct any translation errors, community contributions and pull requests are highly encouraged!
